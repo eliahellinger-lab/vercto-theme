@@ -1,0 +1,200 @@
+<style>
+  .vercto-faq {
+    background-color: #F9F9F9;
+    padding: 100px 24px;
+  }
+
+  .vercto-faq__inner {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .vercto-faq__label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    color: #2563EB;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin: 0 0 16px 0;
+  }
+
+  .vercto-faq__title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: clamp(28px, 4vw, 36px);
+    color: #0C0C0E;
+    margin: 0 0 48px 0;
+    letter-spacing: -0.02em;
+  }
+
+  .vercto-faq__item {
+    border-top: 1px solid rgba(0,0,0,0.1);
+  }
+
+  .vercto-faq__item:last-child {
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+  }
+
+  .vercto-faq__question {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    text-align: left;
+    gap: 16px;
+  }
+
+  .vercto-faq__question-text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #0C0C0E;
+    margin: 0;
+    line-height: 1.4;
+  }
+
+  .vercto-faq__icon {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    color: #888888;
+    transition: transform 200ms ease;
+  }
+
+  .vercto-faq__item.is-open .vercto-faq__icon {
+    transform: rotate(45deg);
+  }
+
+  .vercto-faq__answer {
+    display: none;
+    padding: 0 0 20px 0;
+  }
+
+  .vercto-faq__item.is-open .vercto-faq__answer {
+    display: block;
+  }
+
+  .vercto-faq__answer p {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 15px;
+    color: #888888;
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  @media screen and (max-width: 749px) {
+    .vercto-faq {
+      padding: 64px 20px;
+    }
+  }
+</style>
+
+<div class="vercto-faq">
+  <div class="vercto-faq__inner">
+    <p class="vercto-faq__label">FAQ</p>
+    <h2 class="vercto-faq__title">{{ section.settings.title }}</h2>
+
+    {% for block in section.blocks %}
+      <div class="vercto-faq__item" {{ block.shopify_attributes }}>
+        <button class="vercto-faq__question" aria-expanded="false">
+          <p class="vercto-faq__question-text">{{ block.settings.question }}</p>
+          <svg class="vercto-faq__icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+          </svg>
+        </button>
+        <div class="vercto-faq__answer">
+          <p>{{ block.settings.answer }}</p>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<script>
+  document.querySelectorAll('.vercto-faq__question').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var item = btn.closest('.vercto-faq__item');
+      var isOpen = item.classList.contains('is-open');
+      document.querySelectorAll('.vercto-faq__item').forEach(function(i) {
+        i.classList.remove('is-open');
+        i.querySelector('.vercto-faq__question').setAttribute('aria-expanded', 'false');
+      });
+      if (!isOpen) {
+        item.classList.add('is-open');
+        btn.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+</script>
+
+{% schema %}
+{
+  "name": "FAQ",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Frequently asked questions."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq_item",
+      "name": "FAQ Item",
+      "settings": [
+        {"type": "text", "id": "question", "label": "Question", "default": "How does Vercto know when I'm slouching?"},
+        {"type": "textarea", "id": "answer", "label": "Answer", "default": "Vercto uses a built-in sensor that detects when your spine deviates 5–20° from an upright position. When it does, the device vibrates gently to prompt you to correct your posture."}
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ",
+      "blocks": [
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "How does Vercto know when I'm slouching?",
+            "answer": "Vercto uses a built-in sensor that detects when your spine deviates 5–20° from an upright position. When it does, the device vibrates gently to prompt you to correct your posture."
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is it comfortable to wear all day?",
+            "answer": "Yes. Vercto is made from food-grade silicone and weighs under 200g. It rests on your upper back and is designed to be worn for extended periods without discomfort."
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "What phones does the app support?",
+            "answer": "The Vercto app works on iOS 6.5.8 and above, and Android 6.5.7 and above. It connects via Bluetooth 4.1."
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long does the battery last?",
+            "answer": "Battery life varies by usage. The device charges fully in 1.5 hours via USB-C."
+          }
+        },
+        {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is your return policy?",
+            "answer": "We offer a 30-day return policy. If you're not satisfied for any reason, contact us and we'll arrange a full refund, no questions asked."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,56 @@
+<style>
+  .vercto-announcement {
+    background-color: #2563EB;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .vercto-announcement__text {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    color: #FFFFFF;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    letter-spacing: 0.01em;
+  }
+
+  @media screen and (max-width: 749px) {
+    .vercto-announcement__text {
+      font-size: 13px;
+    }
+  }
+</style>
+
+<div class="vercto-announcement">
+  <p class="vercto-announcement__text">
+    {{ section.settings.text }}
+  </p>
+</div>
+
+{% schema %}
+{
+  "name": "Announcement bar",
+  "class": "announcement-bar-section",
+  "enabled_on": {
+    "groups": ["header"]
+  },
+  "settings": [
+    {
+      "type": "text",
+      "id": "text",
+      "label": "Text",
+      "default": "Free Shipping on All Orders · 30-Day Returns"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Announcement bar"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,83 @@
+<style>
+  .vercto-problem {
+    background-color: #0C0C0E;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 24px;
+  }
+
+  .vercto-problem__inner {
+    max-width: 860px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .vercto-problem__headline {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: clamp(36px, 6vw, 64px);
+    color: #F0F0F0;
+    line-height: 1.15;
+    margin: 0 0 32px 0;
+    letter-spacing: -0.02em;
+  }
+
+  .vercto-problem__headline em {
+    font-style: normal;
+    color: #888888;
+  }
+
+  .vercto-problem__sub {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #888888;
+    line-height: 1.6;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+
+  @media screen and (max-width: 749px) {
+    .vercto-problem {
+      padding: 64px 20px;
+      min-height: 80vh;
+    }
+    .vercto-problem__sub {
+      font-size: 16px;
+    }
+  }
+</style>
+
+<div class="vercto-problem">
+  <div class="vercto-problem__inner">
+    <h2 class="vercto-problem__headline">
+      {{ section.settings.headline }}
+    </h2>
+    {% if section.settings.subtext != blank %}
+      <p class="vercto-problem__sub">{{ section.settings.subtext }}</p>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Problem Statement",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "headline",
+      "label": "Headline",
+      "default": "Most people spend 10+ hours a day hunched over a screen. Your back is paying the price."
+    },
+    {
+      "type": "text",
+      "id": "subtext",
+      "label": "Subtext (optional)",
+      "default": "Your spine wasn't designed for desk life."
+    }
+  ],
+  "presets": [{"name": "Problem Statement"}]
+}
+{% endschema %}

@@ -1,0 +1,113 @@
+<style>
+  .vercto-cta {
+    background-color: #0C0C0E;
+    padding: 120px 24px;
+    text-align: center;
+  }
+
+  .vercto-cta__inner {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .vercto-cta__headline {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: clamp(32px, 5vw, 52px);
+    color: #F0F0F0;
+    margin: 0 0 16px 0;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+  }
+
+  .vercto-cta__price-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 0 0 40px 0;
+  }
+
+  .vercto-cta__price {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 28px;
+    color: #F0F0F0;
+    margin: 0;
+  }
+
+  .vercto-cta__price-compare {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #888888;
+    text-decoration: line-through;
+    margin: 0;
+  }
+
+  .vercto-cta__btn {
+    display: inline-block;
+    background-color: #FFFFFF;
+    color: #0C0C0E;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    text-decoration: none;
+    padding: 0 40px;
+    height: 52px;
+    line-height: 52px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 200ms ease;
+    min-width: 240px;
+  }
+
+  .vercto-cta__btn:hover {
+    background-color: #E8E8E8;
+  }
+
+  @media screen and (max-width: 749px) {
+    .vercto-cta {
+      padding: 64px 20px;
+    }
+    .vercto-cta__btn {
+      width: 100%;
+      display: block;
+    }
+  }
+</style>
+
+<div class="vercto-cta">
+  <div class="vercto-cta__inner">
+    <h2 class="vercto-cta__headline">{{ section.settings.headline }}</h2>
+    <div class="vercto-cta__price-row">
+      <p class="vercto-cta__price">$59.99</p>
+      <p class="vercto-cta__price-compare">$99.99</p>
+    </div>
+    <a href="/products/vercto-posture-pro" class="vercto-cta__btn">
+      {{ section.settings.button_text }}
+    </a>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Final CTA",
+  "settings": [
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Headline",
+      "default": "Start standing taller today."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Get Vercto — $69.99"
+    }
+  ],
+  "presets": [{"name": "Final CTA"}]
+}
+{% endschema %}

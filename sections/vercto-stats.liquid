@@ -1,0 +1,87 @@
+<style>
+  .vercto-stats {
+    background-color: #0C0C0E;
+    padding: 100px 24px;
+  }
+
+  .vercto-stats__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 48px;
+  }
+
+  .vercto-stats__item {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .vercto-stats__number {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: clamp(40px, 5vw, 64px);
+    color: #F0F0F0;
+    line-height: 1;
+    margin: 0;
+    letter-spacing: -0.03em;
+  }
+
+  .vercto-stats__label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #888888;
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  @media screen and (max-width: 749px) {
+    .vercto-stats {
+      padding: 64px 20px;
+    }
+    .vercto-stats__inner {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px 32px;
+    }
+  }
+</style>
+
+<div class="vercto-stats">
+  <div class="vercto-stats__inner">
+    <div class="vercto-stats__item">
+      <p class="vercto-stats__number">{{ section.settings.stat_1_number }}</p>
+      <p class="vercto-stats__label">{{ section.settings.stat_1_label }}</p>
+    </div>
+    <div class="vercto-stats__item">
+      <p class="vercto-stats__number">{{ section.settings.stat_2_number }}</p>
+      <p class="vercto-stats__label">{{ section.settings.stat_2_label }}</p>
+    </div>
+    <div class="vercto-stats__item">
+      <p class="vercto-stats__number">{{ section.settings.stat_3_number }}</p>
+      <p class="vercto-stats__label">{{ section.settings.stat_3_label }}</p>
+    </div>
+    <div class="vercto-stats__item">
+      <p class="vercto-stats__number">{{ section.settings.stat_4_number }}</p>
+      <p class="vercto-stats__label">{{ section.settings.stat_4_label }}</p>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Stats",
+  "settings": [
+    {"type": "text", "id": "stat_1_number", "label": "Stat 1 Number", "default": "50K+"},
+    {"type": "text", "id": "stat_1_label", "label": "Stat 1 Label", "default": "People improved their posture"},
+    {"type": "text", "id": "stat_2_number", "label": "Stat 2 Number", "default": "21 days"},
+    {"type": "text", "id": "stat_2_label", "label": "Stat 2 Label", "default": "Average time to build a new habit"},
+    {"type": "text", "id": "stat_3_number", "label": "Stat 3 Number", "default": "4.8/5"},
+    {"type": "text", "id": "stat_3_label", "label": "Stat 3 Label", "default": "Average customer rating"},
+    {"type": "text", "id": "stat_4_number", "label": "Stat 4 Number", "default": "1.5h"},
+    {"type": "text", "id": "stat_4_label", "label": "Stat 4 Label", "default": "Battery charge time"}
+  ],
+  "presets": [{"name": "Stats"}]
+}
+{% endschema %}

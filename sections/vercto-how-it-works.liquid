@@ -1,0 +1,150 @@
+<style>
+  .vercto-hiw {
+    background-color: #1A1A1E;
+    padding: 100px 24px;
+  }
+
+  .vercto-hiw__inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .vercto-hiw__label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 13px;
+    color: #2563EB;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin: 0 0 16px 0;
+  }
+
+  .vercto-hiw__title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: clamp(28px, 4vw, 40px);
+    color: #F0F0F0;
+    margin: 0 0 64px 0;
+    letter-spacing: -0.02em;
+  }
+
+  .vercto-hiw__steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px;
+  }
+
+  .vercto-hiw__step {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .vercto-hiw__number {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 48px;
+    color: #2563EB;
+    line-height: 1;
+    margin: 0;
+  }
+
+  .vercto-hiw__step-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: #F0F0F0;
+    margin: 0;
+  }
+
+  .vercto-hiw__step-desc {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #888888;
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  @media screen and (max-width: 749px) {
+    .vercto-hiw {
+      padding: 64px 20px;
+    }
+    .vercto-hiw__steps {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .vercto-hiw__title {
+      margin-bottom: 48px;
+    }
+  }
+</style>
+
+<div class="vercto-hiw">
+  <div class="vercto-hiw__inner">
+    <p class="vercto-hiw__label">How It Works</p>
+    <h2 class="vercto-hiw__title">{{ section.settings.title }}</h2>
+    <div class="vercto-hiw__steps">
+      {% for i in (1..3) %}
+        {% assign title_key = 'step_' | append: i | append: '_title' %}
+        {% assign desc_key = 'step_' | append: i | append: '_desc' %}
+        <div class="vercto-hiw__step">
+          <p class="vercto-hiw__number">0{{ i }}</p>
+          <h3 class="vercto-hiw__step-title">{{ section.settings[title_key] }}</h3>
+          <p class="vercto-hiw__step-desc">{{ section.settings[desc_key] }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "How It Works",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Three steps to better posture."
+    },
+    {
+      "type": "text",
+      "id": "step_1_title",
+      "label": "Step 1 Title",
+      "default": "Wear it"
+    },
+    {
+      "type": "textarea",
+      "id": "step_1_desc",
+      "label": "Step 1 Description",
+      "default": "Clip Vercto around your neck. It sits on your upper back — lightweight, discreet, invisible under clothes."
+    },
+    {
+      "type": "text",
+      "id": "step_2_title",
+      "label": "Step 2 Title",
+      "default": "Connect the app"
+    },
+    {
+      "type": "textarea",
+      "id": "step_2_desc",
+      "label": "Step 2 Description",
+      "default": "Pair via Bluetooth in seconds. The app tracks your posture in real time and shows your daily progress."
+    },
+    {
+      "type": "text",
+      "id": "step_3_title",
+      "label": "Step 3 Title",
+      "default": "Feel the difference"
+    },
+    {
+      "type": "textarea",
+      "id": "step_3_desc",
+      "label": "Step 3 Description",
+      "default": "When you slouch, Vercto vibrates gently. No pain, no pressure — just a subtle reminder that actually works."
+    }
+  ],
+  "presets": [{"name": "How It Works"}]
+}
+{% endschema %}
