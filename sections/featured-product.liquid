@@ -1,3 +1,100 @@
+<style>
+  .featured-product .product__media-wrapper {
+    position: relative;
+  }
+
+  .featured-product .product__media-list .product__media-item {
+    display: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 100% !important;
+    flex-shrink: 0 !important;
+  }
+
+  .featured-product .product__media-list .product__media-item.vercto-active {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .featured-product .product__media-list .product-media-container .media {
+    padding-top: 100% !important;
+  }
+
+  .featured-product .product__media-list img {
+    object-fit: cover !important;
+  }
+
+  .featured-product .vercto-slider-nav {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    padding: 0 12px;
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  .featured-product .vercto-slider-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: rgba(12, 12, 14, 0.7);
+    border: 1px solid rgba(255,255,255,0.15);
+    color: #F0F0F0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    pointer-events: all;
+    transition: background-color 200ms ease;
+    backdrop-filter: blur(4px);
+  }
+
+  .featured-product .vercto-slider-btn:hover {
+    background-color: rgba(12, 12, 14, 0.9);
+  }
+
+  .featured-product .vercto-slider-btn svg {
+    stroke: #F0F0F0;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('[id^="VerctoNav-"]').forEach(function(nav) {
+      var sectionId = nav.id.replace('VerctoNav-', '');
+      var slider = document.getElementById('Slider-Gallery-' + sectionId);
+      if (!slider) return;
+
+      var items = Array.from(slider.querySelectorAll('.product__media-item'));
+      if (items.length === 0) return;
+
+      var current = 0;
+
+      function goTo(index) {
+        if (index < 0) index = items.length - 1;
+        if (index >= items.length) index = 0;
+        items[current].classList.remove('vercto-active');
+        current = index;
+        items[current].classList.add('vercto-active');
+      }
+
+      items[0].classList.add('vercto-active');
+
+      nav.querySelector('.vercto-slider-btn--prev').addEventListener('click', function() {
+        goTo(current - 1);
+      });
+      nav.querySelector('.vercto-slider-btn--next').addEventListener('click', function() {
+        goTo(current + 1);
+      });
+    });
+  });
+</script>
+
 {%- liquid
   assign product = section.settings.product
   if product == null
