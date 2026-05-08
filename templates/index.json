@@ -53,7 +53,7 @@
         "b1": { "type": "bullet", "settings": { "text": "Zieht sofort ein, klebt nicht" } },
         "b2": { "type": "bullet", "settings": { "text": "Keine Parabene, keine Silikone" } },
         "b3": { "type": "bullet", "settings": { "text": "1 Inhaltsstoff den deine Haut kennt" } },
-        "b4": { "type": "bullet", "settings": { "text": "60g — reicht 2–3 Monate" } }
+        "b4": { "type": "bullet", "settings": { "text": "110g — reicht 2–3 Monate" } }
       },
       "block_order": ["b1", "b2", "b3", "b4"]
     },
@@ -93,7 +93,7 @@
     "trust": {
       "type": "urtallow-trust",
       "blocks": {
-        "t1": { "type": "trust_item", "settings": { "icon": "shipping",  "label": "Versandkostenfrei ab 29€" } },
+        "t1": { "type": "trust_item", "settings": { "icon": "shipping",  "label": "Kostenloser Versand" } },
         "t2": { "type": "trust_item", "settings": { "icon": "return",    "label": "30 Tage Rückgabe" } },
         "t3": { "type": "trust_item", "settings": { "icon": "natural",   "label": "Natürliche Inhaltsstoffe" } },
         "t4": { "type": "trust_item", "settings": { "icon": "delivery",  "label": "Lieferung 6–10 Werktage" } }
