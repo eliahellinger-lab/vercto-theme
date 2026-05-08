@@ -139,6 +139,28 @@
         "settings": {
           "color_scheme": "scheme-1"
         }
+      },
+      "urtallow-announcement": {
+        "type": "urtallow-announcement",
+        "settings": {
+          "text_left": "Kostenloser Versand ·",
+          "text_cta": "Jetzt 1+1 gratis sichern"
+        }
+      },
+      "urtallow-header": {
+        "type": "urtallow-header",
+        "settings": {
+          "logo": "shopify://shop_images/hf_20260508_124024_0961b6e3-a01b-4886-9c63-773931326300.png",
+          "logo_width": 140
+        }
+      },
+      "urtallow-footer": {
+        "type": "urtallow-footer",
+        "settings": {
+          "tagline": "Hautpflege. Zurück zum Wesentlichen.",
+          "newsletter_text": "Hautpflege-Tipps direkt ins Postfach.",
+          "copyright": "© 2025 URTALLOW. Alle Rechte vorbehalten."
+        }
       }
     },
     "content_for_index": [],
