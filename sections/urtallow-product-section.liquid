@@ -1,0 +1,344 @@
+{% comment %} =====================================================
+  URTALLOW — Produkt Section
+  Bild links, Kaufbox rechts, Shopify ATC
+===================================================== {% endcomment %}
+
+{%- liquid
+  assign target_product = all_products[section.settings.product_handle]
+  if target_product == blank
+    assign target_product = product
+  endif
+-%}
+
+<section class="ur-product ur-section" id="produkt">
+  <div class="ur-container">
+    <div class="ur-product__grid">
+
+      <!-- Image -->
+      <div class="ur-product__gallery">
+        {%- if section.settings.product_image != blank -%}
+          <img
+            src="{{ section.settings.product_image | img_url: '800x800', crop: 'center' }}"
+            srcset="{{ section.settings.product_image | img_url: '500x500', crop: 'center' }} 500w,
+                    {{ section.settings.product_image | img_url: '800x800', crop: 'center' }} 800w"
+            sizes="(max-width: 768px) 100vw, 50vw"
+            alt="{{ section.settings.product_image.alt | default: 'URTALLOW Whipped Cream Jar' }}"
+            width="800" height="800"
+            loading="lazy"
+            class="ur-product__img"
+          >
+        {%- elsif target_product.featured_image -%}
+          <img
+            src="{{ target_product.featured_image | img_url: '800x800', crop: 'center' }}"
+            alt="{{ target_product.featured_image.alt | default: target_product.title }}"
+            width="800" height="800"
+            loading="lazy"
+            class="ur-product__img"
+          >
+        {%- else -%}
+          <div class="ur-product__img-placeholder" aria-hidden="true">
+            <span>Produktbild</span>
+          </div>
+        {%- endif -%}
+
+        <!-- Badge -->
+        <div class="ur-product__badge">1+1 Gratis</div>
+      </div>
+
+      <!-- Buy Box -->
+      <div class="ur-product__buybox">
+        <p class="ur-product__brand">URTALLOW</p>
+        <h2 class="ur-product__title">{{ section.settings.product_name }}</h2>
+
+        <p class="ur-product__ingredients">{{ section.settings.ingredients_line }}</p>
+
+        <!-- Price -->
+        <div class="ur-product__price">
+          <span class="ur-product__price-old">{{ section.settings.price_original }}</span>
+          <span class="ur-product__price-sale">{{ section.settings.price_sale }}</span>
+          <span class="ur-product__price-tag">{{ section.settings.price_tag }}</span>
+        </div>
+
+        <!-- Bullets -->
+        <ul class="ur-product__bullets" role="list">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'bullet' -%}
+              <li class="ur-product__bullet" {{ block.shopify_attributes }}>
+                <svg class="ur-bullet__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+                {{ block.settings.text }}
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+
+        <!-- ATC -->
+        {%- if target_product != blank -%}
+          <form action="{{ routes.cart_add_url }}" method="post" enctype="multipart/form-data" class="ur-product__form">
+            <input type="hidden" name="id" value="{{ target_product.selected_or_first_available_variant.id }}">
+            <input type="hidden" name="quantity" value="1">
+            <button type="submit" name="add" class="ur-btn ur-btn--primary ur-product__atc" aria-label="In den Warenkorb legen">
+              {{ section.settings.atc_text }}
+            </button>
+          </form>
+        {%- else -%}
+          <a href="{{ section.settings.atc_url }}" class="ur-btn ur-btn--primary ur-product__atc">
+            {{ section.settings.atc_text }}
+          </a>
+        {%- endif -%}
+
+        <!-- Micro trust -->
+        <p class="ur-product__micro-trust">
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          30 Tage Rückgabe · Versandkostenfrei ab 29€
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+.ur-product {
+  background: var(--color-cream);
+}
+
+.ur-product__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: start;
+}
+
+/* --- Gallery --- */
+.ur-product__gallery {
+  position: relative;
+}
+
+.ur-product__img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+.ur-product__img-placeholder {
+  width: 100%;
+  aspect-ratio: 1;
+  background: var(--color-cream-dark);
+  border: 2px dashed var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-muted);
+  font-size: 14px;
+}
+
+.ur-product__badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: var(--color-gold);
+  color: var(--color-white);
+  font-size: 12px;
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 6px 14px;
+}
+
+/* --- Buy Box --- */
+.ur-product__brand {
+  font-size: 11px;
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 10px;
+}
+
+.ur-product__title {
+  font-family: var(--font-heading);
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: var(--fw-regular);
+  color: var(--color-black);
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+
+.ur-product__ingredients {
+  font-size: 13px;
+  color: var(--color-muted);
+  letter-spacing: 0.04em;
+  margin-bottom: 28px;
+}
+
+/* Price */
+.ur-product__price {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.ur-product__price-old {
+  font-size: 16px;
+  color: var(--color-muted);
+  text-decoration: line-through;
+}
+
+.ur-product__price-sale {
+  font-family: var(--font-heading);
+  font-size: 32px;
+  font-weight: var(--fw-regular);
+  color: var(--color-black);
+}
+
+.ur-product__price-tag {
+  font-size: 12px;
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: var(--color-gold);
+  color: var(--color-white);
+  padding: 4px 10px;
+}
+
+/* Bullets */
+.ur-product__bullets {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 36px;
+}
+
+.ur-product__bullet {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  color: var(--color-black);
+}
+
+.ur-bullet__icon {
+  width: 16px;
+  height: 16px;
+  stroke: var(--color-gold);
+  flex-shrink: 0;
+}
+
+/* ATC */
+.ur-product__form { margin-bottom: 16px; }
+
+.ur-product__atc {
+  width: 100%;
+  font-size: 15px;
+  letter-spacing: 0.06em;
+}
+
+/* Micro trust */
+.ur-product__micro-trust {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--color-muted);
+  letter-spacing: 0.02em;
+}
+.ur-product__micro-trust svg { stroke: var(--color-gold); flex-shrink: 0; }
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .ur-product__grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Produkt Section",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product_handle",
+      "label": "Produkt auswählen"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_image",
+      "label": "Produktbild (überschreibt Produkt-Bild)"
+    },
+    {
+      "type": "text",
+      "id": "product_name",
+      "label": "Produktname",
+      "default": "Whipped Tallow Cream"
+    },
+    {
+      "type": "text",
+      "id": "ingredients_line",
+      "label": "Inhaltsstoffe Zeile",
+      "default": "Grass-Fed Tallow · Beeswax · Manuka Honey · Jojoba Oil"
+    },
+    {
+      "type": "text",
+      "id": "price_original",
+      "label": "Originalpreis (durchgestrichen)",
+      "default": "49,98€"
+    },
+    {
+      "type": "text",
+      "id": "price_sale",
+      "label": "Aktionspreis",
+      "default": "24,99€"
+    },
+    {
+      "type": "text",
+      "id": "price_tag",
+      "label": "Preis-Badge",
+      "default": "1+1 gratis"
+    },
+    {
+      "type": "text",
+      "id": "atc_text",
+      "label": "Button Text",
+      "default": "In den Warenkorb"
+    },
+    {
+      "type": "url",
+      "id": "atc_url",
+      "label": "Fallback Link (wenn kein Produkt)",
+      "default": "/products/urtallow-whipped-cream"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "bullet",
+      "name": "Bullet Point",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Zieht sofort ein, klebt nicht"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Produkt Section",
+      "blocks": [
+        { "type": "bullet", "settings": { "text": "Zieht sofort ein, klebt nicht" } },
+        { "type": "bullet", "settings": { "text": "Keine Parabene, keine Silikone" } },
+        { "type": "bullet", "settings": { "text": "1 Inhaltsstoff den deine Haut kennt" } },
+        { "type": "bullet", "settings": { "text": "60g — reicht 2–3 Monate" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

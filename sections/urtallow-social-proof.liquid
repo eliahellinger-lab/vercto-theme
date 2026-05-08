@@ -1,0 +1,161 @@
+{% comment %} =====================================================
+  URTALLOW — Social Proof Strip
+  Sterne + Kundenzahl + rotierende Zitate
+===================================================== {% endcomment %}
+
+<section class="ur-proof" aria-label="Kundenstimmen">
+  <div class="ur-container">
+    <div class="ur-proof__inner">
+
+      <!-- Stars + Count -->
+      <div class="ur-proof__rating">
+        <div class="ur-stars" aria-label="5 von 5 Sternen">
+          {%- for i in (1..5) -%}
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          {%- endfor -%}
+        </div>
+        <span class="ur-proof__count">{{ section.settings.count_text }}</span>
+      </div>
+
+      <!-- Divider -->
+      <div class="ur-proof__divider" aria-hidden="true"></div>
+
+      <!-- Rotating Quote -->
+      <div class="ur-proof__quotes" role="region" aria-live="polite" aria-label="Kundenzitat">
+        {%- for block in section.blocks -%}
+          <p class="ur-proof__quote {% if forloop.first %}is-active{% endif %}" data-quote="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
+            "{{ block.settings.quote }}"
+          </p>
+        {%- endfor -%}
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+.ur-proof {
+  background: var(--color-cream-dark);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  padding: 22px 0;
+}
+
+.ur-proof__inner {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.ur-proof__rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.ur-proof__count {
+  font-size: 13px;
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.04em;
+  color: var(--color-black);
+  white-space: nowrap;
+}
+
+.ur-proof__divider {
+  width: 1px;
+  height: 28px;
+  background: var(--color-border);
+  flex-shrink: 0;
+}
+
+.ur-proof__quotes {
+  position: relative;
+  overflow: hidden;
+  flex: 1;
+  min-width: 0;
+  max-width: 500px;
+}
+
+.ur-proof__quote {
+  font-size: 13px;
+  font-style: italic;
+  color: var(--color-muted);
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  transition: opacity 0.5s ease;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+}
+
+.ur-proof__quote.is-active {
+  opacity: 1;
+  position: relative;
+  top: auto;
+  transform: none;
+}
+
+@media (max-width: 600px) {
+  .ur-proof__divider { display: none; }
+  .ur-proof__quotes  { text-align: center; max-width: 100%; width: 100%; }
+}
+</style>
+
+<script>
+(function() {
+  var quotes = document.querySelectorAll('.ur-proof__quote');
+  if (quotes.length <= 1) return;
+  var current = 0;
+  setInterval(function() {
+    quotes[current].classList.remove('is-active');
+    current = (current + 1) % quotes.length;
+    quotes[current].classList.add('is-active');
+  }, 4000);
+})();
+</script>
+
+{% schema %}
+{
+  "name": "Social Proof Strip",
+  "settings": [
+    {
+      "type": "text",
+      "id": "count_text",
+      "label": "Kundenzahl Text",
+      "default": "Über 2.400 zufriedene Kundinnen"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "quote",
+      "name": "Zitat",
+      "settings": [
+        {
+          "type": "text",
+          "id": "quote",
+          "label": "Zitat",
+          "default": "Zum ersten Mal hat jemand meine Haut komplimentiert."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Social Proof Strip",
+      "blocks": [
+        { "type": "quote", "settings": { "quote": "Zum ersten Mal hat jemand meine Haut komplimentiert." } },
+        { "type": "quote", "settings": { "quote": "Kein Spannungsgefühl mehr nach 2 Tagen." } },
+        { "type": "quote", "settings": { "quote": "Meine Haut beruhigte sich sehr schnell." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

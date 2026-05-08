@@ -1,0 +1,299 @@
+{% comment %} =====================================================
+  URTALLOW — Footer
+  Schwarz, Logo + Links + Newsletter + Copyright
+===================================================== {% endcomment %}
+
+<footer class="ur-footer" role="contentinfo">
+  <div class="ur-container">
+    <div class="ur-footer__grid">
+
+      <!-- Logo + Tagline -->
+      <div class="ur-footer__brand">
+        <a href="{{ routes.root_url }}" class="ur-footer__logo" aria-label="{{ shop.name }} – Startseite">
+          <span class="ur-footer__logo-ur">UR</span><span class="ur-footer__logo-tallow">TALLOW</span>
+        </a>
+        <p class="ur-footer__tagline">{{ section.settings.tagline }}</p>
+      </div>
+
+      <!-- Quick Links -->
+      <nav class="ur-footer__nav" aria-label="Footer Navigation">
+        <p class="ur-footer__nav-title">Seiten</p>
+        <ul role="list">
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'link' -%}
+              <li>
+                <a class="ur-footer__link" href="{{ block.settings.url }}" {{ block.shopify_attributes }}>
+                  {{ block.settings.label }}
+                </a>
+              </li>
+            {%- endif -%}
+          {%- endfor -%}
+        </ul>
+      </nav>
+
+      <!-- Newsletter -->
+      <div class="ur-footer__newsletter">
+        <p class="ur-footer__nav-title">Newsletter</p>
+        <p class="ur-footer__newsletter-text">{{ section.settings.newsletter_text }}</p>
+        <form class="ur-footer__form" action="/contact#footer-newsletter" method="post" accept-charset="UTF-8">
+          <input type="hidden" name="form_type" value="customer">
+          <input type="hidden" name="utf8" value="✓">
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <div class="ur-footer__form-row">
+            <label for="footer-email" class="visually-hidden">E-Mail Adresse</label>
+            <input
+              type="email"
+              id="footer-email"
+              name="contact[email]"
+              class="ur-footer__input"
+              placeholder="deine@email.de"
+              required
+              autocomplete="email"
+            >
+            <button type="submit" class="ur-footer__submit" aria-label="Anmelden">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12"/>
+                <polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="ur-footer__bottom">
+      <p class="ur-footer__copy">{{ section.settings.copyright }}</p>
+      <div class="ur-footer__legal">
+        <a class="ur-footer__legal-link" href="/policies/privacy-policy">Datenschutz</a>
+        <a class="ur-footer__legal-link" href="/policies/terms-of-service">AGB</a>
+        <a class="ur-footer__legal-link" href="/policies/shipping-policy">Versand</a>
+        <a class="ur-footer__legal-link" href="/policies/refund-policy">Rückgabe</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+.ur-footer {
+  background: #111111;
+  color: var(--color-white);
+  padding: 72px 0 0;
+}
+
+.ur-footer__grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1.5fr;
+  gap: 48px;
+  padding-bottom: 56px;
+  border-bottom: 1px solid #2C2C2C;
+}
+
+/* Brand */
+.ur-footer__logo {
+  display: inline-flex;
+  font-family: var(--font-body);
+  font-weight: var(--fw-medium);
+  font-size: 22px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.ur-footer__logo-ur    { color: var(--color-gold); }
+.ur-footer__logo-tallow { color: var(--color-white); }
+
+.ur-footer__tagline {
+  font-size: 14px;
+  color: #888888;
+  line-height: 1.6;
+  max-width: 240px;
+}
+
+/* Nav */
+.ur-footer__nav-title {
+  font-size: 11px;
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: 18px;
+}
+
+.ur-footer__nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ur-footer__link {
+  font-size: 14px;
+  color: #AAAAAA;
+  transition: color var(--transition);
+}
+
+.ur-footer__link:hover { color: var(--color-gold); }
+
+/* Newsletter */
+.ur-footer__newsletter-text {
+  font-size: 14px;
+  color: #888888;
+  margin-bottom: 18px;
+  line-height: 1.5;
+}
+
+.ur-footer__form-row {
+  display: flex;
+  border: 1px solid #333333;
+  overflow: hidden;
+}
+
+.ur-footer__input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0 16px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--color-white);
+  height: 48px;
+  min-width: 0;
+}
+
+.ur-footer__input::placeholder { color: #555555; }
+
+.ur-footer__submit {
+  width: 52px;
+  height: 48px;
+  background: var(--color-gold);
+  color: var(--color-white);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background var(--transition);
+}
+
+.ur-footer__submit:hover { background: var(--color-gold-dark); }
+
+/* Bottom */
+.ur-footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 0;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.ur-footer__copy {
+  font-size: 12px;
+  color: #555555;
+  margin: 0;
+}
+
+.ur-footer__legal {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.ur-footer__legal-link {
+  font-size: 12px;
+  color: #555555;
+  transition: color var(--transition);
+}
+
+.ur-footer__legal-link:hover { color: #AAAAAA; }
+
+/* Accessibility */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 900px) {
+  .ur-footer__grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .ur-footer__brand { grid-column: 1 / -1; }
+}
+
+@media (max-width: 560px) {
+  .ur-footer__grid {
+    grid-template-columns: 1fr;
+  }
+  .ur-footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Tagline",
+      "default": "Hautpflege. Zurück zum Wesentlichen."
+    },
+    {
+      "type": "text",
+      "id": "newsletter_text",
+      "label": "Newsletter Text",
+      "default": "Hautpflege-Tipps direkt ins Postfach."
+    },
+    {
+      "type": "text",
+      "id": "copyright",
+      "label": "Copyright",
+      "default": "© 2025 URTALLOW. Alle Rechte vorbehalten."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "link",
+      "name": "Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Produkt"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Footer",
+      "blocks": [
+        { "type": "link", "settings": { "label": "Produkt",   "url": "/products/urtallow-whipped-cream" } },
+        { "type": "link", "settings": { "label": "Über uns",  "url": "/pages/about" } },
+        { "type": "link", "settings": { "label": "Kontakt",   "url": "/pages/contact" } },
+        { "type": "link", "settings": { "label": "FAQ",       "url": "/pages/faq" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

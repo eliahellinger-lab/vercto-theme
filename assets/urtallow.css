@@ -1,0 +1,179 @@
+/* ============================================================
+   URTALLOW — Global Brand Stylesheet
+   Design System: Cream / Gold / Black
+   ============================================================ */
+
+/* --- Tokens ----------------------------------------------- */
+:root {
+  --color-cream:       #F5F0E8;
+  --color-cream-dark:  #EDE8DF;
+  --color-gold:        #d3aa64;
+  --color-gold-dark:   #b8913f;
+  --color-black:       #1A1A1A;
+  --color-black-soft:  #2C2C2C;
+  --color-white:       #FFFFFF;
+  --color-muted:       #6B6B6B;
+  --color-border:      #D8D0C0;
+  --color-error:       #C0392B;
+
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+
+  --fw-light:   300;
+  --fw-regular: 400;
+  --fw-medium:  500;
+
+  --radius-btn: 4px;
+
+  --transition: 250ms ease;
+
+  --section-v-desktop: 100px;
+  --section-v-mobile:  56px;
+  --max-w:    1200px;
+  --max-w-text: 640px;
+}
+
+/* --- Reset & Base ------------------------------------------ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: var(--fw-regular);
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--color-black);
+  background: var(--color-cream);
+  -webkit-font-smoothing: antialiased;
+}
+
+img, video { max-width: 100%; height: auto; display: block; }
+
+a { color: inherit; text-decoration: none; }
+
+button { cursor: pointer; font-family: var(--font-body); border: none; background: none; }
+
+/* --- Typography -------------------------------------------- */
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-heading);
+  font-weight: var(--fw-regular);
+  line-height: 1.2;
+  color: var(--color-black);
+}
+
+h1 { font-size: clamp(32px, 5vw, 58px); }
+h2 { font-size: clamp(26px, 3.5vw, 42px); }
+h3 { font-size: clamp(20px, 2.5vw, 28px); }
+
+p {
+  font-size: clamp(15px, 1.6vw, 18px);
+  line-height: 1.7;
+  color: var(--color-muted);
+}
+
+/* --- Shared Layout ----------------------------------------- */
+.ur-container {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.ur-section {
+  padding: var(--section-v-desktop) 0;
+}
+
+@media (max-width: 768px) {
+  .ur-section { padding: var(--section-v-mobile) 0; }
+}
+
+/* --- Buttons ----------------------------------------------- */
+.ur-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 52px;
+  padding: 0 36px;
+  border-radius: var(--radius-btn);
+  font-family: var(--font-body);
+  font-weight: var(--fw-medium);
+  font-size: 15px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.ur-btn--primary {
+  background: var(--color-black);
+  color: var(--color-white);
+  border: 1.5px solid var(--color-black);
+}
+
+.ur-btn--primary:hover {
+  background: var(--color-gold);
+  border-color: var(--color-gold);
+  color: var(--color-white);
+}
+
+.ur-btn--outline {
+  background: transparent;
+  color: var(--color-black);
+  border: 1.5px solid var(--color-black);
+}
+
+.ur-btn--outline:hover {
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+.ur-btn--gold {
+  background: var(--color-gold);
+  color: var(--color-white);
+  border: 1.5px solid var(--color-gold);
+}
+
+.ur-btn--gold:hover {
+  background: var(--color-gold-dark);
+  border-color: var(--color-gold-dark);
+}
+
+@media (max-width: 768px) {
+  .ur-btn { width: 100%; }
+}
+
+/* --- Gold accent line ------------------------------------- */
+.ur-accent-line {
+  width: 48px;
+  height: 2px;
+  background: var(--color-gold);
+  margin-bottom: 24px;
+}
+
+.ur-accent-line--dark {
+  background: var(--color-black-soft);
+}
+
+/* --- Star rating ------------------------------------------ */
+.ur-stars {
+  display: flex;
+  gap: 2px;
+}
+
+.ur-stars svg {
+  width: 18px;
+  height: 18px;
+  fill: var(--color-gold);
+}
+
+/* --- Reduced Motion --------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

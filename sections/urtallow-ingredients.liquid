@@ -1,0 +1,209 @@
+{% comment %} =====================================================
+  URTALLOW — Inhaltsstoffe Section
+  4 Karten mit Icon + Name + Erklärung
+===================================================== {% endcomment %}
+
+<section class="ur-ingr ur-section" id="inhaltsstoffe">
+  <div class="ur-container">
+    <div class="ur-ingr__header">
+      <div class="ur-accent-line" style="margin: 0 auto 24px;"></div>
+      <h2 class="ur-ingr__title">{{ section.settings.headline }}</h2>
+      <p class="ur-ingr__sub">{{ section.settings.subtext }}</p>
+    </div>
+
+    <div class="ur-ingr__grid">
+      {%- for block in section.blocks -%}
+        <div class="ur-ingr__card" {{ block.shopify_attributes }}>
+          <div class="ur-ingr__icon" aria-hidden="true">
+            {%- if block.settings.icon == 'tallow' -%}
+              <!-- Droplet icon for Tallow -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2.69l5.66 5.66a8 8 0 11-11.31 0z"/>
+              </svg>
+            {%- elsif block.settings.icon == 'honey' -%}
+              <!-- Hexagon for Honey -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"/>
+              </svg>
+            {%- elsif block.settings.icon == 'beeswax' -%}
+              <!-- Shield for Beeswax -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+            {%- elsif block.settings.icon == 'jojoba' -%}
+              <!-- Leaf for Jojoba -->
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 8C8 10 5.9 16.17 3.82 19.9A2 2 0 002 22c0-7.73 5.65-14.39 13-16l2 2zm2 2l-2-2c0 5-3.5 9.06-8 10 5-1 10-5 10-10z"/>
+              </svg>
+            {%- else -%}
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="12" y1="8" x2="12" y2="16"/>
+                <line x1="8" y1="12" x2="16" y2="12"/>
+              </svg>
+            {%- endif -%}
+          </div>
+          <h3 class="ur-ingr__name">{{ block.settings.name }}</h3>
+          <p class="ur-ingr__desc">{{ block.settings.description }}</p>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<style>
+.ur-ingr {
+  background: var(--color-cream-dark);
+  text-align: center;
+}
+
+.ur-ingr__header {
+  max-width: var(--max-w-text);
+  margin: 0 auto 64px;
+}
+
+.ur-ingr__title {
+  font-family: var(--font-heading);
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: var(--fw-regular);
+  color: var(--color-black);
+  margin-bottom: 14px;
+}
+
+.ur-ingr__sub {
+  font-size: 16px;
+  color: var(--color-muted);
+}
+
+/* Grid */
+.ur-ingr__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--color-border);
+  border: 1px solid var(--color-border);
+}
+
+.ur-ingr__card {
+  background: var(--color-cream);
+  padding: 48px 28px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: background var(--transition);
+}
+
+.ur-ingr__card:hover {
+  background: var(--color-cream-dark);
+}
+
+.ur-ingr__icon {
+  width: 52px;
+  height: 52px;
+  margin-bottom: 20px;
+  color: var(--color-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ur-ingr__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.ur-ingr__name {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: var(--fw-regular);
+  color: var(--color-black);
+  margin-bottom: 10px;
+}
+
+.ur-ingr__desc {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--color-muted);
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .ur-ingr__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .ur-ingr__grid {
+    grid-template-columns: 1fr;
+  }
+  .ur-ingr__card {
+    padding: 36px 24px 32px;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Inhaltsstoffe",
+  "settings": [
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Headline",
+      "default": "Was drin ist. Nichts weiter."
+    },
+    {
+      "type": "text",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "Vier Inhaltsstoffe, die deine Haut seit Jahrtausenden kennt."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "ingredient",
+      "name": "Inhaltsstoff",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "tallow", "label": "Tallow (Tropfen)" },
+            { "value": "honey",  "label": "Honey (Hexagon)" },
+            { "value": "beeswax","label": "Beeswax (Schild)" },
+            { "value": "jojoba", "label": "Jojoba (Blatt)" },
+            { "value": "other",  "label": "Sonstiges (+)" }
+          ],
+          "default": "tallow"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "Grass-Fed Tallow"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Beschreibung",
+          "default": "Identische Fettsäuren wie dein Hauttalg"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Inhaltsstoffe",
+      "blocks": [
+        { "type": "ingredient", "settings": { "icon": "tallow", "name": "Grass-Fed Tallow", "description": "Identische Fettsäuren wie dein Hauttalg" } },
+        { "type": "ingredient", "settings": { "icon": "honey",  "name": "Manuka Honey",     "description": "Natürlich antibakteriell und beruhigend" } },
+        { "type": "ingredient", "settings": { "icon": "beeswax","name": "Beeswax",           "description": "Schützt die natürliche Hautbarriere" } },
+        { "type": "ingredient", "settings": { "icon": "jojoba", "name": "Jojoba Oil",        "description": "Balanciert und regeneriert" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

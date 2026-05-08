@@ -1,135 +1,137 @@
 {
   "sections": {
-    "main": {
-      "type": "featured-product",
+    "announcement": {
+      "type": "urtallow-announcement",
+      "settings": {
+        "text_left": "Kostenloser Versand ab 29€ ·",
+        "text_cta": "Jetzt 1+1 gratis sichern"
+      }
+    },
+    "hero": {
+      "type": "urtallow-hero",
+      "settings": {
+        "eyebrow": "100% Natürlich · Grass-Fed",
+        "headline": "Hautpflege wie vor 3000 Jahren. Bevor die Industrie sie ersetzte.",
+        "subheadline": "Ein Inhaltsstoff. Keine Chemie. Keine Abhängigkeit.",
+        "cta_text": "Jetzt entdecken",
+        "cta_url": "/products/urtallow-whipped-cream",
+        "trust_text": "Über 2.400 zufriedene Kundinnen"
+      }
+    },
+    "social_proof": {
+      "type": "urtallow-social-proof",
+      "settings": {
+        "count_text": "Über 2.400 zufriedene Kundinnen"
+      },
       "blocks": {
-        "title": {
-          "type": "title",
-          "settings": {}
+        "quote1": {
+          "type": "quote",
+          "settings": { "quote": "Zum ersten Mal hat jemand meine Haut komplimentiert." }
         },
-        "price": {
-          "type": "price",
-          "settings": {}
+        "quote2": {
+          "type": "quote",
+          "settings": { "quote": "Kein Spannungsgefühl mehr nach 2 Tagen." }
         },
-        "buy_buttons": {
-          "type": "buy_buttons",
+        "quote3": {
+          "type": "quote",
+          "settings": { "quote": "Meine Haut beruhigte sich nach dem ersten Tag." }
+        }
+      },
+      "block_order": ["quote1", "quote2", "quote3"]
+    },
+    "problem_solution": {
+      "type": "urtallow-problem-solution",
+      "settings": {
+        "problem_headline": "Das Problem mit deiner Creme",
+        "problem_text": "Konventionelle Cremes erzeugen eine künstliche Barriere. Die Haut stellt ihre eigene Produktion zurück. Du brauchst immer mehr. Der Kreislauf beginnt.",
+        "solution_headline": "Warum Tallow anders wirkt",
+        "solution_text": "Rindertalg enthält dieselben Fettsäuren die deine Haut selbst produziert. Keine künstlichen Zusätze. Keine Abhängigkeit. Deine Haut erkennt es."
+      }
+    },
+    "product_section": {
+      "type": "urtallow-product-section",
+      "settings": {
+        "product_name": "Whipped Tallow Cream",
+        "ingredients_line": "Grass-Fed Tallow · Beeswax · Manuka Honey · Jojoba Oil",
+        "price_original": "49,98€",
+        "price_sale": "24,99€",
+        "price_tag": "1+1 gratis",
+        "atc_text": "In den Warenkorb",
+        "atc_url": "/products/urtallow-whipped-cream"
+      },
+      "blocks": {
+        "b1": { "type": "bullet", "settings": { "text": "Zieht sofort ein, klebt nicht" } },
+        "b2": { "type": "bullet", "settings": { "text": "Keine Parabene, keine Silikone" } },
+        "b3": { "type": "bullet", "settings": { "text": "1 Inhaltsstoff den deine Haut kennt" } },
+        "b4": { "type": "bullet", "settings": { "text": "60g — reicht 2–3 Monate" } }
+      },
+      "block_order": ["b1", "b2", "b3", "b4"]
+    },
+    "ingredients": {
+      "type": "urtallow-ingredients",
+      "settings": {
+        "headline": "Was drin ist. Nichts weiter.",
+        "subtext": "Vier Inhaltsstoffe, die deine Haut seit Jahrtausenden kennt."
+      },
+      "blocks": {
+        "i1": { "type": "ingredient", "settings": { "icon": "tallow", "name": "Grass-Fed Tallow",  "description": "Identische Fettsäuren wie dein Hauttalg" } },
+        "i2": { "type": "ingredient", "settings": { "icon": "honey",  "name": "Manuka Honey",      "description": "Natürlich antibakteriell und beruhigend" } },
+        "i3": { "type": "ingredient", "settings": { "icon": "beeswax","name": "Beeswax",            "description": "Schützt die natürliche Hautbarriere" } },
+        "i4": { "type": "ingredient", "settings": { "icon": "jojoba", "name": "Jojoba Oil",         "description": "Balanciert und regeneriert" } }
+      },
+      "block_order": ["i1", "i2", "i3", "i4"]
+    },
+    "testimonials": {
+      "type": "urtallow-testimonials",
+      "settings": {
+        "headline": "Was Kundinnen sagen."
+      },
+      "blocks": {
+        "r1": {
+          "type": "review",
           "settings": {
-            "show_dynamic_checkout": false,
-            "show_gift_card_recipient": false
+            "quote": "Schon am 2. Tag dankt es mir meine Haut. Sie beruhigte sich sehr schnell, spannt nicht mehr.",
+            "name": "Sarah M.",
+            "detail": "Verifizierter Kauf"
           }
         },
-        "description": {
-          "type": "custom_liquid",
+        "r2": {
+          "type": "review",
           "settings": {
-            "custom_liquid": "<a href=\"/products/vercto-posture-pro\" style=\"display:inline-block;margin-bottom:16px;font-family:'Inter',sans-serif;font-size:14px;font-weight:500;color:#2563EB;text-decoration:none;\">Productpage &rarr;</a><div class=\"product__description rte\" style=\"max-width:100%;\">{{ all_products['vercto-posture-pro'].description }}</div>"
+            "quote": "Ich habe mein ganzes Leben unter Rötungen gelitten. Nach 3 Wochen mit Tallow zum ersten Mal Komplimente für meine Haut bekommen.",
+            "name": "Julia K.",
+            "detail": "Verifizierter Kauf"
+          }
+        },
+        "r3": {
+          "type": "review",
+          "settings": {
+            "quote": "Kein Spannungsgefühl mehr, rissige Haut an den Händen hat sich erholt.",
+            "name": "Maria S.",
+            "detail": "Verifizierter Kauf"
           }
         }
       },
-      "block_order": ["title", "price", "buy_buttons", "description"],
-      "settings": {
-        "product": "vercto-posture-pro",
-        "color_scheme": "scheme-1",
-        "secondary_background": false,
-        "media_size": "large",
-        "constrain_to_viewport": true,
-        "media_fit": "contain",
-        "gallery_layout": "stacked",
-        "mobile_thumbnails": "hide",
-        "media_position": "left",
-        "image_zoom": "lightbox",
-        "hide_variants": true,
-        "enable_video_looping": false,
-        "padding_top": 48,
-        "padding_bottom": 48
-      }
+      "block_order": ["r1", "r2", "r3"]
     },
-    "trust-bar": {
-      "type": "vercto-trust-bar",
-      "settings": {}
-    },
-    "problem": {
-      "type": "vercto-problem",
-      "settings": {
-        "headline": "Most people spend 10+ hours a day hunched over a screen. Your back is paying the price.",
-        "subtext": "Your spine wasn't designed for desk life."
-      }
-    },
-    "how-it-works": {
-      "type": "vercto-how-it-works",
-      "settings": {
-        "title": "Three steps to better posture.",
-        "step_1_title": "Wear it",
-        "step_1_desc": "Clip Vercto around your neck. It sits on your upper back — lightweight, discreet, invisible under clothes.",
-        "step_2_title": "Connect the app",
-        "step_2_desc": "Pair via Bluetooth in seconds. The app tracks your posture in real time and shows your daily progress.",
-        "step_3_title": "Feel the difference",
-        "step_3_desc": "When you slouch, Vercto vibrates gently. No pain, no pressure — just a subtle reminder that actually works."
-      }
-    },
-    "stats": {
-      "type": "vercto-stats",
-      "settings": {
-        "stat_1_number": "50K+",
-        "stat_1_label": "People improved their posture",
-        "stat_2_number": "21 days",
-        "stat_2_label": "Average time to build a new habit",
-        "stat_3_number": "4.8/5",
-        "stat_3_label": "Average customer rating",
-        "stat_4_number": "1.5h",
-        "stat_4_label": "Battery charge time"
-      }
-    },
-    "faq": {
-      "type": "vercto-faq",
+    "trust": {
+      "type": "urtallow-trust",
       "blocks": {
-        "faq-1": {
-          "type": "faq_item",
-          "settings": {
-            "question": "How does Vercto know when I'm slouching?",
-            "answer": "Vercto uses a built-in sensor that detects when your spine deviates 5–20° from an upright position. When it does, the device vibrates gently to prompt you to correct your posture."
-          }
-        },
-        "faq-2": {
-          "type": "faq_item",
-          "settings": {
-            "question": "Is it comfortable to wear all day?",
-            "answer": "Yes. Vercto is made from food-grade silicone and weighs under 200g. It rests on your upper back and is designed to be worn for extended periods without discomfort."
-          }
-        },
-        "faq-3": {
-          "type": "faq_item",
-          "settings": {
-            "question": "What phones does the app support?",
-            "answer": "The Vercto app works on iOS 6.5.8 and above, and Android 6.5.7 and above. It connects via Bluetooth 4.1."
-          }
-        },
-        "faq-4": {
-          "type": "faq_item",
-          "settings": {
-            "question": "How long does the battery last?",
-            "answer": "Battery life varies by usage. The device charges fully in 1.5 hours via USB-C."
-          }
-        },
-        "faq-5": {
-          "type": "faq_item",
-          "settings": {
-            "question": "What is your return policy?",
-            "answer": "We offer a 30-day return policy. If you're not satisfied for any reason, contact us and we'll arrange a full refund, no questions asked."
-          }
-        }
+        "t1": { "type": "trust_item", "settings": { "icon": "shipping",  "label": "Versandkostenfrei ab 29€" } },
+        "t2": { "type": "trust_item", "settings": { "icon": "return",    "label": "30 Tage Rückgabe" } },
+        "t3": { "type": "trust_item", "settings": { "icon": "natural",   "label": "Natürliche Inhaltsstoffe" } },
+        "t4": { "type": "trust_item", "settings": { "icon": "delivery",  "label": "Lieferung 6–10 Werktage" } }
       },
-      "block_order": ["faq-1", "faq-2", "faq-3", "faq-4", "faq-5"],
-      "settings": {
-        "title": "Frequently asked questions."
-      }
-    },
-    "final-cta": {
-      "type": "vercto-final-cta",
-      "settings": {
-        "headline": "Start standing taller today.",
-        "button_text": "Get Vercto — $59.99"
-      }
+      "block_order": ["t1", "t2", "t3", "t4"]
     }
   },
-  "order": ["main", "trust-bar", "problem", "how-it-works", "stats", "faq", "final-cta"]
+  "order": [
+    "hero",
+    "social_proof",
+    "problem_solution",
+    "product_section",
+    "ingredients",
+    "testimonials",
+    "trust"
+  ]
 }

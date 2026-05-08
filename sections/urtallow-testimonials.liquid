@@ -1,0 +1,185 @@
+{% comment %} =====================================================
+  URTALLOW — Testimonials Section
+  3 Karten, Cream BG, schwarze Border
+===================================================== {% endcomment %}
+
+<section class="ur-testimonials ur-section" id="erfahrungen">
+  <div class="ur-container">
+    <div class="ur-testimonials__header">
+      <div class="ur-accent-line" style="margin: 0 auto 24px;"></div>
+      <h2 class="ur-testimonials__title">{{ section.settings.headline }}</h2>
+    </div>
+
+    <div class="ur-testimonials__grid">
+      {%- for block in section.blocks -%}
+        <article class="ur-review-card" {{ block.shopify_attributes }}>
+          <div class="ur-stars" aria-label="5 von 5 Sternen">
+            {%- for i in (1..5) -%}
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            {%- endfor -%}
+          </div>
+          <blockquote class="ur-review-card__quote">
+            "{{ block.settings.quote }}"
+          </blockquote>
+          <footer class="ur-review-card__author">
+            <span class="ur-review-card__name">— {{ block.settings.name }}</span>
+            {%- if block.settings.detail != blank -%}
+              <span class="ur-review-card__detail">{{ block.settings.detail }}</span>
+            {%- endif -%}
+          </footer>
+        </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<style>
+.ur-testimonials {
+  background: var(--color-cream);
+  text-align: center;
+}
+
+.ur-testimonials__header {
+  max-width: var(--max-w-text);
+  margin: 0 auto 56px;
+}
+
+.ur-testimonials__title {
+  font-family: var(--font-heading);
+  font-size: clamp(26px, 3vw, 38px);
+  font-weight: var(--fw-regular);
+  color: var(--color-black);
+}
+
+/* Grid */
+.ur-testimonials__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  text-align: left;
+}
+
+/* Card */
+.ur-review-card {
+  border: 1px solid var(--color-black);
+  padding: 40px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  background: var(--color-cream);
+  transition: background var(--transition);
+}
+
+.ur-review-card:hover {
+  background: var(--color-cream-dark);
+}
+
+.ur-review-card__quote {
+  font-family: var(--font-heading);
+  font-size: clamp(16px, 1.5vw, 19px);
+  font-style: italic;
+  font-weight: var(--fw-regular);
+  line-height: 1.55;
+  color: var(--color-black);
+  flex: 1;
+  margin: 0;
+}
+
+.ur-review-card__author {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ur-review-card__name {
+  font-size: 13px;
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.04em;
+  color: var(--color-black);
+}
+
+.ur-review-card__detail {
+  font-size: 12px;
+  color: var(--color-muted);
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 900px) {
+  .ur-testimonials__grid {
+    grid-template-columns: 1fr;
+    max-width: 540px;
+    margin: 0 auto;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "settings": [
+    {
+      "type": "text",
+      "id": "headline",
+      "label": "Headline",
+      "default": "Was Kundinnen sagen."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Bewertung",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Zitat",
+          "default": "Schon am 2. Tag dankt es mir meine Haut. Sie beruhigte sich sehr schnell, spannt nicht mehr."
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Name",
+          "default": "Sarah M."
+        },
+        {
+          "type": "text",
+          "id": "detail",
+          "label": "Detail (z.B. Verifizierter Kauf)",
+          "default": "Verifizierter Kauf"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials",
+      "blocks": [
+        {
+          "type": "review",
+          "settings": {
+            "quote": "Schon am 2. Tag dankt es mir meine Haut. Sie beruhigte sich sehr schnell, spannt nicht mehr.",
+            "name": "Sarah M.",
+            "detail": "Verifizierter Kauf"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "quote": "Ich habe mein ganzes Leben unter Rötungen gelitten. Nach 3 Wochen mit Tallow zum ersten Mal Komplimente für meine Haut bekommen.",
+            "name": "Julia K.",
+            "detail": "Verifizierter Kauf"
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "quote": "Kein Spannungsgefühl mehr, rissige Haut an den Händen hat sich erholt.",
+            "name": "Maria S.",
+            "detail": "Verifizierter Kauf"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

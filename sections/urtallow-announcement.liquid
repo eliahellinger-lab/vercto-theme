@@ -1,0 +1,63 @@
+{% comment %} =====================================================
+  URTALLOW — Announcement Bar
+  Schmaler schwarzer Balken ganz oben
+===================================================== {% endcomment %}
+
+<div class="ur-announcement" role="banner" aria-label="Ankündigung">
+  <div class="ur-announcement__inner ur-container">
+    <p class="ur-announcement__text">
+      {{ section.settings.text_left }}
+      <span class="ur-announcement__cta">{{ section.settings.text_cta }}</span>
+    </p>
+  </div>
+</div>
+
+<style>
+.ur-announcement {
+  background: var(--color-black);
+  color: var(--color-white);
+  padding: 10px 0;
+  text-align: center;
+  position: relative;
+  z-index: 100;
+}
+
+.ur-announcement__text {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: var(--fw-medium);
+  letter-spacing: 0.05em;
+  color: var(--color-white);
+  margin: 0;
+}
+
+.ur-announcement__cta {
+  color: var(--color-gold);
+  margin-left: 4px;
+}
+</style>
+
+{% schema %}
+{
+  "name": "Announcement Bar",
+  "settings": [
+    {
+      "type": "text",
+      "id": "text_left",
+      "label": "Text Links",
+      "default": "Kostenloser Versand ab 29€ ·"
+    },
+    {
+      "type": "text",
+      "id": "text_cta",
+      "label": "CTA Text (Gold)",
+      "default": "Jetzt 1+1 gratis sichern"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Announcement Bar"
+    }
+  ]
+}
+{% endschema %}
