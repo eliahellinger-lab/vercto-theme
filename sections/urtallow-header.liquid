@@ -1,6 +1,6 @@
 {% comment %} =====================================================
   URTALLOW — Navigation / Header
-  Logo zentriert, Warenkorb rechts, kein Menü
+  Logo zentriert (Bild oder Text-Fallback), Warenkorb rechts
 ===================================================== {% endcomment %}
 
 <header class="ur-header" id="urtallow-header" role="banner">
@@ -11,7 +11,18 @@
 
     <!-- Logo zentriert -->
     <a href="{{ routes.root_url }}" class="ur-header__logo" aria-label="{{ shop.name }} – Startseite">
-      <span class="ur-logo__ur">UR</span><span class="ur-logo__tallow">TALLOW</span>
+      {%- if section.settings.logo != blank -%}
+        <img
+          src="{{ section.settings.logo | img_url: '300x' }}"
+          alt="{{ section.settings.logo.alt | default: shop.name }}"
+          width="{{ section.settings.logo_width }}"
+          height="auto"
+          loading="eager"
+          class="ur-header__logo-img"
+        >
+      {%- else -%}
+        <span class="ur-logo__ur">UR</span><span class="ur-logo__tallow">TALLOW</span>
+      {%- endif -%}
     </a>
 
     <!-- Rechts: Warenkorb -->
@@ -66,6 +77,14 @@
 .ur-logo__ur     { color: var(--color-gold); }
 .ur-logo__tallow { color: var(--color-black); }
 
+.ur-header__logo-img {
+  display: block;
+  height: 36px;
+  width: auto;
+  max-width: {{ section.settings.logo_width }}px;
+  object-fit: contain;
+}
+
 /* Actions */
 .ur-header__actions {
   display: flex;
@@ -105,6 +124,23 @@
 
 {% schema %}
 {
-  "name": "Header"
+  "name": "Header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "range",
+      "id": "logo_width",
+      "min": 50,
+      "max": 300,
+      "step": 10,
+      "unit": "px",
+      "label": "Logo Breite",
+      "default": 140
+    }
+  ]
 }
 {% endschema %}
