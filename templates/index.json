@@ -5,9 +5,8 @@
       "settings": {
         "eyebrow": "100% Natürlich · Grass-Fed",
         "headline": "Hautpflege wie vor 3000 Jahren. Bevor die Industrie sie ersetzte.",
-        "subheadline": "Deine Haut kennt diesen Stoff bereits. Die Industrie hat ihn nur ersetzt.",
+        "subheadline": "Du hast alles probiert. Das hier ist anders — weil es deine Haut bereits kennt.",
         "cta_text": "Jetzt entdecken",
-
         "trust_text": "Über 2.400 zufriedene Kundinnen"
       }
     },
@@ -45,7 +44,6 @@
       "type": "urtallow-product-section",
       "settings": {
         "product_name": "Whipped Tallow Cream",
-        "ingredients_line": "Grass-Fed Tallow · Beeswax · Manuka Honey · Jojoba Oil",
         "price_original": "49,98€",
         "price_sale": "24,99€",
         "price_tag": "1+1 gratis",
@@ -58,20 +56,6 @@
         "b4": { "type": "bullet", "settings": { "text": "60g — reicht 2–3 Monate" } }
       },
       "block_order": ["b1", "b2", "b3", "b4"]
-    },
-    "ingredients": {
-      "type": "urtallow-ingredients",
-      "settings": {
-        "headline": "Was drin ist. Nichts weiter.",
-        "subtext": "Vier Inhaltsstoffe, die deine Haut seit Jahrtausenden kennt."
-      },
-      "blocks": {
-        "i1": { "type": "ingredient", "settings": { "icon": "tallow", "name": "Grass-Fed Tallow",  "description": "Identische Fettsäuren wie dein Hauttalg" } },
-        "i2": { "type": "ingredient", "settings": { "icon": "honey",  "name": "Manuka Honey",      "description": "Natürlich antibakteriell und beruhigend" } },
-        "i3": { "type": "ingredient", "settings": { "icon": "beeswax","name": "Beeswax",            "description": "Schützt die natürliche Hautbarriere" } },
-        "i4": { "type": "ingredient", "settings": { "icon": "jojoba", "name": "Jojoba Oil",         "description": "Balanciert und regeneriert" } }
-      },
-      "block_order": ["i1", "i2", "i3", "i4"]
     },
     "testimonials": {
       "type": "urtallow-testimonials",
@@ -122,7 +106,6 @@
     "social_proof",
     "problem_solution",
     "product_section",
-    "ingredients",
     "testimonials",
     "trust"
   ]
