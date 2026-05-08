@@ -1,18 +1,11 @@
 {
   "sections": {
-    "announcement": {
-      "type": "urtallow-announcement",
-      "settings": {
-        "text_left": "Kostenloser Versand ab 29€ ·",
-        "text_cta": "Jetzt 1+1 gratis sichern"
-      }
-    },
     "hero": {
       "type": "urtallow-hero",
       "settings": {
         "eyebrow": "100% Natürlich · Grass-Fed",
         "headline": "Hautpflege wie vor 3000 Jahren. Bevor die Industrie sie ersetzte.",
-        "subheadline": "Ein Inhaltsstoff. Keine Chemie. Keine Abhängigkeit.",
+        "subheadline": "Deine Haut kennt diesen Stoff bereits. Die Industrie hat ihn nur ersetzt.",
         "cta_text": "Jetzt entdecken",
 
         "trust_text": "Über 2.400 zufriedene Kundinnen"
