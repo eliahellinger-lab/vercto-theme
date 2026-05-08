@@ -1,28 +1,20 @@
 {% comment %} =====================================================
   URTALLOW — Navigation / Header
-  Sticky, minimalistisch, Logo + Menü + Warenkorb
+  Logo zentriert, Warenkorb rechts, kein Menü
 ===================================================== {% endcomment %}
 
 <header class="ur-header" id="urtallow-header" role="banner">
   <div class="ur-header__inner ur-container">
 
-    <!-- Logo -->
+    <!-- Linke Seite: Platzhalter für Balance -->
+    <div class="ur-header__left" aria-hidden="true"></div>
+
+    <!-- Logo zentriert -->
     <a href="{{ routes.root_url }}" class="ur-header__logo" aria-label="{{ shop.name }} – Startseite">
       <span class="ur-logo__ur">UR</span><span class="ur-logo__tallow">TALLOW</span>
     </a>
 
-    <!-- Desktop Nav -->
-    <nav class="ur-header__nav" aria-label="Hauptnavigation">
-      <ul class="ur-nav__list" role="list">
-        {%- for link in linklists[section.settings.menu].links -%}
-          <li class="ur-nav__item">
-            <a class="ur-nav__link" href="{{ link.url }}">{{ link.title }}</a>
-          </li>
-        {%- endfor -%}
-      </ul>
-    </nav>
-
-    <!-- Right: Cart -->
+    <!-- Rechts: Warenkorb -->
     <div class="ur-header__actions">
       <a href="{{ routes.cart_url }}" class="ur-header__cart" aria-label="Warenkorb ({{ cart.item_count }} Artikel)">
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -34,26 +26,9 @@
           <span class="ur-cart__badge" aria-live="polite">{{ cart.item_count }}</span>
         {%- endif -%}
       </a>
-
-      <!-- Mobile Hamburger -->
-      <button class="ur-header__burger" aria-label="Menü öffnen" aria-expanded="false" aria-controls="ur-mobile-menu">
-        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true">
-          <line x1="3" y1="6" x2="21" y2="6"/>
-          <line x1="3" y1="12" x2="21" y2="12"/>
-          <line x1="3" y1="18" x2="21" y2="18"/>
-        </svg>
-      </button>
     </div>
-  </div>
 
-  <!-- Mobile Menu -->
-  <nav class="ur-mobile-menu" id="ur-mobile-menu" aria-label="Mobile Navigation" hidden>
-    <ul class="ur-mobile-menu__list" role="list">
-      {%- for link in linklists[section.settings.menu].links -%}
-        <li><a class="ur-mobile-menu__link" href="{{ link.url }}">{{ link.title }}</a></li>
-      {%- endfor -%}
-    </ul>
-  </nav>
+  </div>
 </header>
 
 <style>
@@ -70,7 +45,12 @@
   align-items: center;
   justify-content: space-between;
   height: 68px;
-  gap: 24px;
+}
+
+/* Balancing placeholder — same width as cart area */
+.ur-header__left {
+  width: 44px;
+  flex-shrink: 0;
 }
 
 /* Logo */
@@ -82,46 +62,14 @@
   text-transform: uppercase;
   display: flex;
   align-items: center;
-  flex-shrink: 0;
 }
-.ur-logo__ur    { color: var(--color-gold); }
+.ur-logo__ur     { color: var(--color-gold); }
 .ur-logo__tallow { color: var(--color-black); }
-
-/* Nav */
-.ur-header__nav { flex: 1; display: flex; justify-content: center; }
-.ur-nav__list {
-  display: flex;
-  list-style: none;
-  gap: 36px;
-}
-.ur-nav__link {
-  font-size: 13px;
-  font-weight: var(--fw-medium);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-black);
-  position: relative;
-  padding-bottom: 4px;
-  transition: color var(--transition);
-}
-.ur-nav__link::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 1px;
-  background: var(--color-gold);
-  transition: width var(--transition);
-}
-.ur-nav__link:hover { color: var(--color-gold); }
-.ur-nav__link:hover::after { width: 100%; }
 
 /* Actions */
 .ur-header__actions {
   display: flex;
   align-items: center;
-  gap: 16px;
   flex-shrink: 0;
 }
 
@@ -129,12 +77,12 @@
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: center;
   color: var(--color-black);
   transition: color var(--transition);
   cursor: pointer;
   min-width: 44px;
   min-height: 44px;
-  justify-content: center;
 }
 .ur-header__cart:hover { color: var(--color-gold); }
 
@@ -153,74 +101,10 @@
   align-items: center;
   justify-content: center;
 }
-
-/* Burger */
-.ur-header__burger {
-  display: none;
-  align-items: center;
-  justify-content: center;
-  min-width: 44px;
-  min-height: 44px;
-  color: var(--color-black);
-  cursor: pointer;
-}
-
-/* Mobile Menu */
-.ur-mobile-menu {
-  background: var(--color-cream);
-  border-top: 1px solid var(--color-border);
-  padding: 16px 0;
-}
-.ur-mobile-menu__list {
-  list-style: none;
-  padding: 0 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-.ur-mobile-menu__link {
-  display: block;
-  padding: 12px 0;
-  font-size: 15px;
-  font-weight: var(--fw-medium);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--color-black);
-  border-bottom: 1px solid var(--color-border);
-  transition: color var(--transition);
-}
-.ur-mobile-menu__link:hover { color: var(--color-gold); }
-
-@media (max-width: 768px) {
-  .ur-header__nav { display: none; }
-  .ur-header__burger { display: flex; }
-}
 </style>
-
-<script>
-(function() {
-  var burger = document.querySelector('.ur-header__burger');
-  var menu   = document.getElementById('ur-mobile-menu');
-  if (!burger || !menu) return;
-  burger.addEventListener('click', function() {
-    var open = menu.hidden;
-    menu.hidden = !open;
-    burger.setAttribute('aria-expanded', String(open));
-    burger.setAttribute('aria-label', open ? 'Menü schließen' : 'Menü öffnen');
-  });
-})();
-</script>
 
 {% schema %}
 {
-  "name": "Header",
-  "settings": [
-    {
-      "type": "link_list",
-      "id": "menu",
-      "label": "Hauptmenü",
-      "default": "main-menu"
-    }
-  ]
+  "name": "Header"
 }
 {% endschema %}
