@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
@@ -12,24 +21,34 @@
     },
     "social_proof": {
       "type": "urtallow-social-proof",
-      "settings": {
-        "count_text": "Über 2.400 zufriedene Kundinnen"
-      },
       "blocks": {
         "quote1": {
           "type": "quote",
-          "settings": { "quote": "Zum ersten Mal hat jemand meine Haut komplimentiert." }
+          "settings": {
+            "quote": "Zum ersten Mal hat jemand meine Haut komplimentiert."
+          }
         },
         "quote2": {
           "type": "quote",
-          "settings": { "quote": "Kein Spannungsgefühl mehr nach 2 Tagen." }
+          "settings": {
+            "quote": "Kein Spannungsgefühl mehr nach 2 Tagen."
+          }
         },
         "quote3": {
           "type": "quote",
-          "settings": { "quote": "Meine Haut beruhigte sich nach dem ersten Tag." }
+          "settings": {
+            "quote": "Meine Haut beruhigte sich nach dem ersten Tag."
+          }
         }
       },
-      "block_order": ["quote1", "quote2", "quote3"]
+      "block_order": [
+        "quote1",
+        "quote2",
+        "quote3"
+      ],
+      "settings": {
+        "count_text": "Über 2.400 zufriedene Kundinnen"
+      }
     },
     "problem_solution": {
       "type": "urtallow-problem-solution",
@@ -42,26 +61,48 @@
     },
     "product_section": {
       "type": "urtallow-product-section",
+      "blocks": {
+        "b1": {
+          "type": "bullet",
+          "settings": {
+            "text": "Zieht sofort ein, klebt nicht"
+          }
+        },
+        "b2": {
+          "type": "bullet",
+          "settings": {
+            "text": "Keine Parabene, keine Silikone"
+          }
+        },
+        "b3": {
+          "type": "bullet",
+          "settings": {
+            "text": "1 Inhaltsstoff den deine Haut kennt"
+          }
+        },
+        "b4": {
+          "type": "bullet",
+          "settings": {
+            "text": "110g — reicht 2–3 Monate"
+          }
+        }
+      },
+      "block_order": [
+        "b1",
+        "b2",
+        "b3",
+        "b4"
+      ],
       "settings": {
         "product_name": "Whipped Tallow Cream",
         "price_original": "49,98€",
         "price_sale": "24,99€",
         "price_tag": "1+1 gratis",
         "atc_text": "In den Warenkorb"
-      },
-      "blocks": {
-        "b1": { "type": "bullet", "settings": { "text": "Zieht sofort ein, klebt nicht" } },
-        "b2": { "type": "bullet", "settings": { "text": "Keine Parabene, keine Silikone" } },
-        "b3": { "type": "bullet", "settings": { "text": "1 Inhaltsstoff den deine Haut kennt" } },
-        "b4": { "type": "bullet", "settings": { "text": "110g — reicht 2–3 Monate" } }
-      },
-      "block_order": ["b1", "b2", "b3", "b4"]
+      }
     },
     "testimonials": {
       "type": "urtallow-testimonials",
-      "settings": {
-        "headline": "Was Kundinnen sagen."
-      },
       "blocks": {
         "r1": {
           "type": "review",
@@ -88,17 +129,54 @@
           }
         }
       },
-      "block_order": ["r1", "r2", "r3"]
+      "block_order": [
+        "r1",
+        "r2",
+        "r3"
+      ],
+      "settings": {
+        "headline": "Was Kundinnen sagen."
+      }
     },
     "trust": {
       "type": "urtallow-trust",
       "blocks": {
-        "t1": { "type": "trust_item", "settings": { "icon": "shipping",  "label": "Kostenloser Versand" } },
-        "t2": { "type": "trust_item", "settings": { "icon": "return",    "label": "30 Tage Rückgabe" } },
-        "t3": { "type": "trust_item", "settings": { "icon": "natural",   "label": "Natürliche Inhaltsstoffe" } },
-        "t4": { "type": "trust_item", "settings": { "icon": "delivery",  "label": "Lieferung 6–10 Werktage" } }
+        "t1": {
+          "type": "trust_item",
+          "settings": {
+            "icon": "shipping",
+            "label": "Kostenloser Versand"
+          }
+        },
+        "t2": {
+          "type": "trust_item",
+          "settings": {
+            "icon": "return",
+            "label": "30 Tage Rückgabe"
+          }
+        },
+        "t3": {
+          "type": "trust_item",
+          "settings": {
+            "icon": "natural",
+            "label": "Natürliche Inhaltsstoffe"
+          }
+        },
+        "t4": {
+          "type": "trust_item",
+          "settings": {
+            "icon": "delivery",
+            "label": "Lieferung 6–10 Werktage"
+          }
+        }
       },
-      "block_order": ["t1", "t2", "t3", "t4"]
+      "block_order": [
+        "t1",
+        "t2",
+        "t3",
+        "t4"
+      ],
+      "settings": {}
     }
   },
   "order": [
