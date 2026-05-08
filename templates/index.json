@@ -14,7 +14,7 @@
         "headline": "Hautpflege wie vor 3000 Jahren. Bevor die Industrie sie ersetzte.",
         "subheadline": "Ein Inhaltsstoff. Keine Chemie. Keine Abhängigkeit.",
         "cta_text": "Jetzt entdecken",
-        "cta_url": "/products/urtallow-whipped-cream",
+
         "trust_text": "Über 2.400 zufriedene Kundinnen"
       }
     },
@@ -56,8 +56,7 @@
         "price_original": "49,98€",
         "price_sale": "24,99€",
         "price_tag": "1+1 gratis",
-        "atc_text": "In den Warenkorb",
-        "atc_url": "/products/urtallow-whipped-cream"
+        "atc_text": "In den Warenkorb"
       },
       "blocks": {
         "b1": { "type": "bullet", "settings": { "text": "Zieht sofort ein, klebt nicht" } },
