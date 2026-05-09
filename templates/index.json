@@ -16,7 +16,9 @@
         "headline": "Du hast alles probiert. Eucerin. Kortison. 80-Euro-Cremes. Nichts hat geholfen.",
         "subheadline": "Beef Tallow. Ein Inhaltsstoff. Derselbe den deine Haut selbst produziert.",
         "cta_text": "Jetzt entdecken",
-        "trust_text": "Über 2.400 zufriedene Kundinnen"
+        "cta_url": "",
+        "trust_text": "Über 2.400 zufriedene Kundinnen",
+        "product_image": "shopify://shop_images/new_angle_product_image.png"
       }
     },
     "social_proof": {
@@ -94,11 +96,14 @@
         "b4"
       ],
       "settings": {
+        "product_handle": "",
         "product_name": "Whipped Tallow Cream",
+        "ingredients_line": "Grass-Fed Tallow · Beeswax · Manuka Honey · Jojoba Oil",
         "price_original": "49,98€",
         "price_sale": "24,99€",
         "price_tag": "1+1 gratis",
-        "atc_text": "In den Warenkorb"
+        "atc_text": "In den Warenkorb",
+        "atc_url": ""
       }
     },
     "testimonials": {
