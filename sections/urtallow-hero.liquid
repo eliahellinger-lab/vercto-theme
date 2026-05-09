@@ -14,7 +14,7 @@
         <p class="ur-hero__sub">{{ section.settings.subheadline }}</p>
 
         <div class="ur-hero__actions">
-          <a href="{{ section.settings.cta_url }}" class="ur-btn ur-btn--primary">
+          <a href="#produkt" class="ur-btn ur-btn--primary" onclick="event.preventDefault(); document.getElementById('produkt').scrollIntoView({behavior:'smooth'});">
             {{ section.settings.cta_text }}
           </a>
         </div>
