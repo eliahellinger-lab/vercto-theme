@@ -46,6 +46,14 @@
             "Abstand_unten": 0,
             "product": "{{product}}"
           }
+        },
+        "sternify_sternify_gift_EUQhby": {
+          "type": "shopify://apps/sternify/blocks/sternify_gift/fcc6e879-7d9e-4924-b387-68cfab68cec6",
+          "settings": {
+            "Abstand_oben": 0,
+            "Abstand_unten": 0,
+            "product": "{{product}}"
+          }
         }
       },
       "block_order": [
@@ -54,7 +62,8 @@
         "buy_buttons",
         "description",
         "sternify_sternify_bundle_HaB3cT",
-        "sternify_sternify_upsell_Y7wVUt"
+        "sternify_sternify_upsell_Y7wVUt",
+        "sternify_sternify_gift_EUQhby"
       ],
       "settings": {
         "enable_sticky_info": true,
