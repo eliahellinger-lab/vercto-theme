@@ -9,18 +9,6 @@
  */
 {
   "sections": {
-    "hero": {
-      "type": "urtallow-hero",
-      "settings": {
-        "eyebrow": "100% Natürlich · Grass-Fed",
-        "headline": "Du hast alles probiert. Eucerin. Kortison. 80-Euro-Cremes. Nichts hat geholfen.",
-        "subheadline": "Beef Tallow. Ein Inhaltsstoff. Derselbe den deine Haut selbst produziert.",
-        "cta_text": "Jetzt entdecken",
-        "cta_url": "",
-        "trust_text": "Über 2.400 zufriedene Kundinnen",
-        "product_image": "shopify://shop_images/hf_20260509_064633_be669689-387b-4cca-8a54-3abc452a7908.png"
-      }
-    },
     "social_proof": {
       "type": "urtallow-social-proof",
       "blocks": {
@@ -85,7 +73,7 @@
         "b4": {
           "type": "bullet",
           "settings": {
-            "text": "110g — reicht 2–3 Monate"
+            "text": "60g — reicht 2–3 Monate"
           }
         }
       },
@@ -96,14 +84,60 @@
         "b4"
       ],
       "settings": {
-        "product_handle": "beef-tallow-moisturizer",
         "product_name": "Whipped Tallow Cream",
         "ingredients_line": "Grass-Fed Tallow · Beeswax · Manuka Honey · Jojoba Oil",
         "price_original": "49,98€",
         "price_sale": "24,99€",
         "price_tag": "1+1 gratis",
         "atc_text": "In den Warenkorb",
-        "atc_url": ""
+        "atc_url": "/products/urtallow-whipped-cream"
+      }
+    },
+    "ingredients": {
+      "type": "urtallow-ingredients",
+      "blocks": {
+        "i1": {
+          "type": "ingredient",
+          "settings": {
+            "icon": "tallow",
+            "name": "Grass-Fed Tallow",
+            "description": "Identische Fettsäuren wie dein Hauttalg"
+          }
+        },
+        "i2": {
+          "type": "ingredient",
+          "settings": {
+            "icon": "honey",
+            "name": "Manuka Honey",
+            "description": "Natürlich antibakteriell und beruhigend"
+          }
+        },
+        "i3": {
+          "type": "ingredient",
+          "settings": {
+            "icon": "beeswax",
+            "name": "Beeswax",
+            "description": "Schützt die natürliche Hautbarriere"
+          }
+        },
+        "i4": {
+          "type": "ingredient",
+          "settings": {
+            "icon": "jojoba",
+            "name": "Jojoba Oil",
+            "description": "Balanciert und regeneriert"
+          }
+        }
+      },
+      "block_order": [
+        "i1",
+        "i2",
+        "i3",
+        "i4"
+      ],
+      "settings": {
+        "headline": "Was drin ist. Nichts weiter.",
+        "subtext": "Vier Inhaltsstoffe, die deine Haut seit Jahrtausenden kennt."
       }
     },
     "testimonials": {
@@ -150,7 +184,7 @@
           "type": "trust_item",
           "settings": {
             "icon": "shipping",
-            "label": "Kostenloser Versand"
+            "label": "Versandkostenfrei ab 29€"
           }
         },
         "t2": {
@@ -185,10 +219,10 @@
     }
   },
   "order": [
-    "hero",
     "social_proof",
     "problem_solution",
     "product_section",
+    "ingredients",
     "testimonials",
     "trust"
   ]
