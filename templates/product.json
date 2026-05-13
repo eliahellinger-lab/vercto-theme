@@ -398,6 +398,52 @@
       "settings": {
         "include_margins": true
       }
+    },
+    "urtallow_product_section_87AEw8": {
+      "type": "urtallow-product-section",
+      "blocks": {
+        "bullet_ByrerB": {
+          "type": "bullet",
+          "settings": {
+            "text": "Zieht sofort ein, klebt nicht"
+          }
+        },
+        "bullet_nC9eHg": {
+          "type": "bullet",
+          "settings": {
+            "text": "Keine Parabene, keine Silikone"
+          }
+        },
+        "bullet_DD8CWE": {
+          "type": "bullet",
+          "settings": {
+            "text": "1 Inhaltsstoff den deine Haut kennt"
+          }
+        },
+        "bullet_amyT8F": {
+          "type": "bullet",
+          "settings": {
+            "text": "112g — reicht 2–3 Monate"
+          }
+        }
+      },
+      "block_order": [
+        "bullet_ByrerB",
+        "bullet_nC9eHg",
+        "bullet_DD8CWE",
+        "bullet_amyT8F"
+      ],
+      "name": "Produkt Section",
+      "settings": {
+        "product_handle": "",
+        "product_name": "Whipped Tallow Cream",
+        "ingredients_line": "Grass-Fed Tallow · Beeswax · Manuka Honey · Jojoba Oil",
+        "price_original": "49,98€",
+        "price_sale": "24,99€",
+        "price_tag": "1+1 gratis",
+        "atc_text": "In den Warenkorb",
+        "atc_url": ""
+      }
     }
   },
   "order": [
@@ -410,6 +456,7 @@
     "faq",
     "final-cta",
     "1776155352cf3f8088",
-    "1778649260fe9657b3"
+    "1778649260fe9657b3",
+    "urtallow_product_section_87AEw8"
   ]
 }
