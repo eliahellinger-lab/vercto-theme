@@ -14,7 +14,7 @@
         <p class="ur-hero__sub">{{ section.settings.subheadline }}</p>
 
         <div class="ur-hero__actions">
-          <a href="#produkt" class="ur-btn ur-btn--primary" onclick="event.preventDefault(); document.getElementById('produkt').scrollIntoView({behavior:'smooth'});">
+          <a href="{{ section.settings.cta_url }}" class="ur-btn ur-btn--primary">
             {{ section.settings.cta_text }}
           </a>
         </div>
@@ -34,9 +34,9 @@
       <div class="ur-hero__media">
         {%- if section.settings.product_image != blank -%}
           <img
-            src="{{ section.settings.product_image | img_url: '700x700', crop: 'center' }}"
-            srcset="{{ section.settings.product_image | img_url: '400x400', crop: 'center' }} 400w,
-                    {{ section.settings.product_image | img_url: '700x700', crop: 'center' }} 700w"
+            src="{{ section.settings.product_image | image_url: width: 700 }}"
+            srcset="{{ section.settings.product_image | image_url: width: 400 }} 400w,
+                    {{ section.settings.product_image | image_url: width: 700 }} 700w"
             sizes="(max-width: 768px) 100vw, 50vw"
             alt="{{ section.settings.product_image.alt | default: 'URTALLOW Whipped Cream' }}"
             width="700" height="700"

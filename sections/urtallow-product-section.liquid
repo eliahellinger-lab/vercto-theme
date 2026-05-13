@@ -10,24 +10,6 @@
   endif
 -%}
 
-<!-- Social Proof Strip -->
-<div class="ur-pre-product-strip">
-  <div class="ur-container">
-    <div class="ur-pre-product-strip__inner">
-      <div class="ur-pre-product-strip__left">
-        <div class="ur-stars" aria-label="5 von 5 Sternen">
-          {%- for i in (1..5) -%}
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          {%- endfor -%}
-        </div>
-        <span class="ur-pre-product-strip__count">Tausende Frauen haben Tallow bereits entdeckt</span>
-      </div>
-      <div class="ur-pre-product-strip__divider" aria-hidden="true"></div>
-      <p class="ur-pre-product-strip__quote">"Schon am 2. Tag kein Spannungsgefühl mehr."</p>
-    </div>
-  </div>
-</div>
-
 <section class="ur-product ur-section" id="produkt">
   <div class="ur-container">
     <div class="ur-product__grid">
@@ -36,9 +18,9 @@
       <div class="ur-product__gallery">
         {%- if section.settings.product_image != blank -%}
           <img
-            src="{{ section.settings.product_image | img_url: '800x800', crop: 'center' }}"
-            srcset="{{ section.settings.product_image | img_url: '500x500', crop: 'center' }} 500w,
-                    {{ section.settings.product_image | img_url: '800x800', crop: 'center' }} 800w"
+            src="{{ section.settings.product_image | image_url: width: 800 }}"
+            srcset="{{ section.settings.product_image | image_url: width: 500 }} 500w,
+                    {{ section.settings.product_image | image_url: width: 800 }} 800w"
             sizes="(max-width: 768px) 100vw, 50vw"
             alt="{{ section.settings.product_image.alt | default: 'URTALLOW Whipped Cream Jar' }}"
             width="800" height="800"
@@ -47,7 +29,7 @@
           >
         {%- elsif target_product.featured_image -%}
           <img
-            src="{{ target_product.featured_image | img_url: '800x800', crop: 'center' }}"
+            src="{{ target_product.featured_image | image_url: width: 800 }}"
             alt="{{ target_product.featured_image.alt | default: target_product.title }}"
             width="800" height="800"
             loading="lazy"
@@ -136,7 +118,7 @@
 
 .ur-product__img {
   width: 100%;
-  height: auto;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
   display: block;
 }
@@ -273,57 +255,6 @@
     grid-template-columns: 1fr;
     gap: 40px;
   }
-}
-
-/* --- Social Proof Strip --- */
-.ur-pre-product-strip {
-  background: var(--color-cream-dark);
-  border-top: 1px solid var(--color-border);
-  border-bottom: 1px solid var(--color-border);
-  padding: 20px 0;
-}
-
-.ur-pre-product-strip__inner {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.ur-pre-product-strip__left {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  flex-shrink: 0;
-}
-
-.ur-pre-product-strip__count {
-  font-size: 13px;
-  font-weight: var(--fw-medium);
-  letter-spacing: 0.04em;
-  color: var(--color-black);
-  white-space: nowrap;
-}
-
-.ur-pre-product-strip__divider {
-  width: 1px;
-  height: 28px;
-  background: var(--color-border);
-  flex-shrink: 0;
-}
-
-.ur-pre-product-strip__quote {
-  font-size: 13px;
-  font-style: italic;
-  color: var(--color-muted);
-  margin: 0;
-}
-
-@media (max-width: 600px) {
-  .ur-pre-product-strip__divider { display: none; }
-  .ur-pre-product-strip__count  { white-space: normal; }
-  .ur-pre-product-strip__inner  { text-align: center; }
 }
 </style>
 
