@@ -83,10 +83,174 @@
     },
     "trust-bar": {
       "type": "vercto-trust-bar",
+      "disabled": true,
+      "custom_css": [],
       "settings": {}
+    },
+    "st_before_after_taEhAA": {
+      "type": "st_before-after",
+      "blocks": {
+        "star_rating_hDzjkk": {
+          "type": "star_rating",
+          "settings": {
+            "rating": 4.5,
+            "star_color": "#cdac6e",
+            "rating_text": "<strong>2,400+</strong> echte Ergebnisse",
+            "rating_text_color": "#000000",
+            "rating_text_font": "poppins_n4",
+            "rating_text_fontsize": 13
+          }
+        },
+        "heading_dNLbwq": {
+          "type": "heading",
+          "settings": {
+            "heading_text": "GLEICHE HAUT – ANDERE [PFLEGE]",
+            "heading_color": "#1a1a1a",
+            "heading_highlight_mode": "gradient",
+            "heading_highlight_color_solid": "#566e9c",
+            "heading_highlight_color_gradient": "linear-gradient(0deg, rgba(205, 172, 110, 1), rgba(129, 108, 68, 1) 100%)",
+            "heading_font": "poppins_n7",
+            "heading_fontsize_desktop": 32,
+            "heading_fontsize_mobile": 24
+          }
+        },
+        "description_4jKnVX": {
+          "type": "description",
+          "settings": {
+            "description_text": "<p><strong>Echte Pflege beginnt hier.</strong> Tallow ist bioidentisch mit deinen eigenen Haut — deine Haut erkennt ihn sofort und absorbiert ihn vollständig. Kein Kleben, kein Brennen, kein Kreislauf aus Cremes die nichts lösen. Spürbare Ergebnisse bereits nach wenigen Wochen.</p>",
+            "description_color": "#000000",
+            "description_font": "poppins_n4",
+            "description_fontsize_desktop": 14,
+            "description_fontsize_mobile": 13
+          }
+        },
+        "benefit_yHjpiL": {
+          "type": "benefit",
+          "settings": {
+            "benefit_text": "<strong>Geschmeidigere Haut</strong> & weniger Spannungsgefühl",
+            "benefit_color": "#1a1a1a",
+            "benefit_font": "poppins_n4",
+            "benefit_fontsize_desktop": 15,
+            "benefit_fontsize_mobile": 13,
+            "icon_color": "#cdac6e"
+          }
+        },
+        "benefit_6AF6gE": {
+          "type": "benefit",
+          "settings": {
+            "benefit_text": "<strong>Bioidentisch</strong> mit deinem Hautfett",
+            "benefit_color": "#1a1a1a",
+            "benefit_font": "poppins_n4",
+            "benefit_fontsize_desktop": 15,
+            "benefit_fontsize_mobile": 13,
+            "icon_color": "#cdac6e"
+          }
+        },
+        "benefit_x7EUAp": {
+          "type": "benefit",
+          "settings": {
+            "benefit_text": "<strong>Nur natürliche Inhaltsstoffe</strong> — keine Silikone, keine Konservierungsstoffe",
+            "benefit_color": "#1a1a1a",
+            "benefit_font": "poppins_n4",
+            "benefit_fontsize_desktop": 15,
+            "benefit_fontsize_mobile": 13,
+            "icon_color": "#cdac6e"
+          }
+        },
+        "button_EJXFYq": {
+          "type": "button",
+          "settings": {
+            "button_text": "SHOP NOW",
+            "button_link": "",
+            "button_bg_mode": "gradient",
+            "button_bg_color_solid": "#566e9c",
+            "button_bg_color_gradient": "linear-gradient(0deg, rgba(205, 172, 110, 1), rgba(129, 108, 68, 1) 100%)",
+            "button_text_color": "#ffffff",
+            "button_font": "poppins_n6",
+            "button_fontsize_desktop": 14,
+            "button_fontsize_mobile": 12,
+            "button_border_radius": 30,
+            "show_arrow": true,
+            "arrow_color": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "star_rating_hDzjkk",
+        "heading_dNLbwq",
+        "description_4jKnVX",
+        "benefit_yHjpiL",
+        "benefit_6AF6gE",
+        "benefit_x7EUAp",
+        "button_EJXFYq"
+      ],
+      "name": "💫: Before & After",
+      "settings": {
+        "margin_top": 50,
+        "margin_bottom": 50,
+        "bg_color_mode": "gradient",
+        "section_bg_color_solid": "#f9f9f9",
+        "section_bg_color_gradient": "linear-gradient(320deg, rgba(226, 231, 238, 1), rgba(249, 249, 249, 1) 26%)",
+        "desktop_card_layout": true,
+        "max_width": 1400,
+        "enable_text_panel": true,
+        "desktop_image_position": "left",
+        "mobile_text_position": "bottom",
+        "text_vertical_align": "center",
+        "inner_gap": 40,
+        "show_section_header": true,
+        "header_title": "See the [Results]",
+        "header_title_color": "#1a1a1a",
+        "header_title_highlight_mode": "solid",
+        "header_title_highlight_color_solid": "#566e9c",
+        "header_title_highlight_color_gradient": "linear-gradient(0deg, rgba(86, 110, 156, 1), rgba(121, 143, 186, 1) 100%)",
+        "header_title_font": "poppins_n6",
+        "header_title_fontsize_desktop": 32,
+        "header_title_fontsize_mobile": 24,
+        "header_subtitle": "Real results from real customers — clearer skin in just weeks",
+        "header_subtitle_color": "#666666",
+        "header_subtitle_font": "poppins_n4",
+        "header_subtitle_fontsize_desktop": 16,
+        "header_subtitle_fontsize_mobile": 12,
+        "before_image": "shopify://shop_images/hf_20260513_055308_3f1a74b3-b2f7-43fd-a62b-ebab793ab3f7.png",
+        "after_image": "shopify://shop_images/hf_20260513_053753_a26adfdd-cc5f-465c-adb4-33d10ea51e0c.png",
+        "image_max_width": 400,
+        "image_split": 50,
+        "aspect_ratio": "4:3",
+        "image_border_radius": 8,
+        "image_circle": false,
+        "show_labels": true,
+        "before_label": "Before",
+        "after_label": "After",
+        "label_position": "top",
+        "label_corner_mode": true,
+        "label_position_h": "left",
+        "label_corner_mode_h": true,
+        "label_font": "poppins_n6",
+        "label_fontsize_desktop": 14,
+        "label_fontsize_mobile": 12,
+        "label_text_color": "#cdac6e",
+        "label_bg_color": "#ffffff",
+        "label_bg_opacity": 60,
+        "label_bg_blur": 8,
+        "divider_mode": "slider",
+        "slider_direction": "vertical",
+        "initial_position": 50,
+        "divider_color": "#ffffff",
+        "divider_width": 2,
+        "divider_overlap": false,
+        "handle_color": "#ffffff",
+        "handle_bg_opacity": 30,
+        "handle_bg_blur": 7,
+        "handle_border_color": "#ffffff",
+        "handle_icon_color": "#ffffff",
+        "handle_size_desktop": 40,
+        "handle_size_mobile": 34
+      }
     },
     "problem": {
       "type": "vercto-problem",
+      "disabled": true,
       "settings": {
         "headline": "Most people spend 10+ hours a day hunched over a screen. Your back is paying the price.",
         "subtext": "Your spine wasn't designed for desk life."
@@ -94,6 +258,7 @@
     },
     "how-it-works": {
       "type": "vercto-how-it-works",
+      "disabled": true,
       "settings": {
         "title": "Three steps to better posture.",
         "step_1_title": "Wear it",
@@ -106,6 +271,7 @@
     },
     "stats": {
       "type": "vercto-stats",
+      "disabled": true,
       "settings": {
         "stat_1_number": "50K+",
         "stat_1_label": "People improved their posture",
@@ -120,6 +286,13 @@
     "faq": {
       "type": "vercto-faq",
       "blocks": {
+        "faq_item_E4kk38": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How does Vercto know when I'm slouching?",
+            "answer": "Vercto uses a built-in sensor that detects when your spine deviates 5–20° from an upright position. When it does, the device vibrates gently to prompt you to correct your posture."
+          }
+        },
         "faq-1": {
           "type": "faq_item",
           "settings": {
@@ -157,18 +330,21 @@
         }
       },
       "block_order": [
+        "faq_item_E4kk38",
         "faq-1",
         "faq-2",
         "faq-3",
         "faq-4",
         "faq-5"
       ],
+      "disabled": true,
       "settings": {
         "title": "Frequently asked questions."
       }
     },
     "final-cta": {
       "type": "vercto-final-cta",
+      "disabled": true,
       "settings": {
         "headline": "Start standing taller today.",
         "button_text": "Get Vercto — $59.99"
@@ -221,165 +397,6 @@
       ],
       "settings": {
         "include_margins": true
-      }
-    },
-    "st_before_after_taEhAA": {
-      "type": "st_before-after",
-      "blocks": {
-        "star_rating_hDzjkk": {
-          "type": "star_rating",
-          "settings": {
-            "rating": 4.5,
-            "star_color": "#566e9c",
-            "rating_text": "<strong>50,000+</strong> clear skin transformations",
-            "rating_text_color": "#666666",
-            "rating_text_font": "poppins_n4",
-            "rating_text_fontsize": 13
-          }
-        },
-        "heading_dNLbwq": {
-          "type": "heading",
-          "settings": {
-            "heading_text": "SAME SKIN - DIFFERENT [CARE]",
-            "heading_color": "#1a1a1a",
-            "heading_highlight_mode": "gradient",
-            "heading_highlight_color_solid": "#566e9c",
-            "heading_highlight_color_gradient": "linear-gradient(0deg, rgba(86, 110, 156, 1), rgba(121, 143, 186, 1) 100%)",
-            "heading_font": "poppins_n7",
-            "heading_fontsize_desktop": 32,
-            "heading_fontsize_mobile": 24
-          }
-        },
-        "description_4jKnVX": {
-          "type": "description",
-          "settings": {
-            "description_text": "<p><strong>Clear skin starts here.</strong> Our advanced formula targets acne at the root — unclogging pores, reducing redness, and preventing future breakouts. See visible results in as little as 2 weeks.</p>",
-            "description_color": "#444444",
-            "description_font": "poppins_n4",
-            "description_fontsize_desktop": 14,
-            "description_fontsize_mobile": 13
-          }
-        },
-        "benefit_yHjpiL": {
-          "type": "benefit",
-          "settings": {
-            "benefit_text": "<strong>Reduces acne</strong> & redness in just 14 days",
-            "benefit_color": "#1a1a1a",
-            "benefit_font": "poppins_n4",
-            "benefit_fontsize_desktop": 15,
-            "benefit_fontsize_mobile": 13,
-            "icon_color": "#566e9c"
-          }
-        },
-        "benefit_6AF6gE": {
-          "type": "benefit",
-          "settings": {
-            "benefit_text": "<strong>Dermatologist tested</strong> & approved formula",
-            "benefit_color": "#1a1a1a",
-            "benefit_font": "poppins_n4",
-            "benefit_fontsize_desktop": 15,
-            "benefit_fontsize_mobile": 13,
-            "icon_color": "#566e9c"
-          }
-        },
-        "benefit_x7EUAp": {
-          "type": "benefit",
-          "settings": {
-            "benefit_text": "<strong>100% natural</strong> ingredients, no harsh chemicals",
-            "benefit_color": "#1a1a1a",
-            "benefit_font": "poppins_n4",
-            "benefit_fontsize_desktop": 15,
-            "benefit_fontsize_mobile": 13,
-            "icon_color": "#566e9c"
-          }
-        },
-        "button_EJXFYq": {
-          "type": "button",
-          "settings": {
-            "button_text": "SHOP NOW",
-            "button_link": "",
-            "button_bg_mode": "gradient",
-            "button_bg_color_solid": "#566e9c",
-            "button_bg_color_gradient": "linear-gradient(0deg, rgba(86, 110, 156, 1), rgba(121, 143, 186, 1) 100%)",
-            "button_text_color": "#ffffff",
-            "button_font": "poppins_n6",
-            "button_fontsize_desktop": 14,
-            "button_fontsize_mobile": 12,
-            "button_border_radius": 30,
-            "show_arrow": true,
-            "arrow_color": "#ffffff"
-          }
-        }
-      },
-      "block_order": [
-        "star_rating_hDzjkk",
-        "heading_dNLbwq",
-        "description_4jKnVX",
-        "benefit_yHjpiL",
-        "benefit_6AF6gE",
-        "benefit_x7EUAp",
-        "button_EJXFYq"
-      ],
-      "name": "💫: Before & After",
-      "settings": {
-        "margin_top": 50,
-        "margin_bottom": 50,
-        "bg_color_mode": "gradient",
-        "section_bg_color_solid": "#f9f9f9",
-        "section_bg_color_gradient": "linear-gradient(320deg, rgba(226, 231, 238, 1), rgba(249, 249, 249, 1) 26%)",
-        "desktop_card_layout": true,
-        "max_width": 1400,
-        "enable_text_panel": true,
-        "desktop_image_position": "left",
-        "mobile_text_position": "bottom",
-        "text_vertical_align": "center",
-        "inner_gap": 40,
-        "show_section_header": true,
-        "header_title": "See the [Results]",
-        "header_title_color": "#1a1a1a",
-        "header_title_highlight_mode": "solid",
-        "header_title_highlight_color_solid": "#566e9c",
-        "header_title_highlight_color_gradient": "linear-gradient(0deg, rgba(86, 110, 156, 1), rgba(121, 143, 186, 1) 100%)",
-        "header_title_font": "poppins_n6",
-        "header_title_fontsize_desktop": 32,
-        "header_title_fontsize_mobile": 24,
-        "header_subtitle": "Real results from real customers — clearer skin in just weeks",
-        "header_subtitle_color": "#666666",
-        "header_subtitle_font": "poppins_n4",
-        "header_subtitle_fontsize_desktop": 16,
-        "header_subtitle_fontsize_mobile": 12,
-        "image_max_width": 400,
-        "image_split": 50,
-        "aspect_ratio": "4:3",
-        "image_border_radius": 8,
-        "image_circle": false,
-        "show_labels": true,
-        "before_label": "Before",
-        "after_label": "After",
-        "label_position": "top",
-        "label_corner_mode": true,
-        "label_position_h": "left",
-        "label_corner_mode_h": true,
-        "label_font": "poppins_n6",
-        "label_fontsize_desktop": 14,
-        "label_fontsize_mobile": 12,
-        "label_text_color": "#566e9c",
-        "label_bg_color": "#ffffff",
-        "label_bg_opacity": 60,
-        "label_bg_blur": 8,
-        "divider_mode": "slider",
-        "slider_direction": "vertical",
-        "initial_position": 50,
-        "divider_color": "#ffffff",
-        "divider_width": 2,
-        "divider_overlap": false,
-        "handle_color": "#ffffff",
-        "handle_bg_opacity": 30,
-        "handle_bg_blur": 7,
-        "handle_border_color": "#ffffff",
-        "handle_icon_color": "#ffffff",
-        "handle_size_desktop": 40,
-        "handle_size_mobile": 34
       }
     }
   },
